@@ -1,0 +1,10 @@
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.exe.config
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.exe
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.pdb
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.frmLogin.resources
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Properties.Resources.resources
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.exe
+C:\Users\Usuario\source\repos\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.pdb
