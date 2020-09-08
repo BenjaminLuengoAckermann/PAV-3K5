@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System;
 using System.Data;
 
-namespace PrimerAppEnCapas.Datos.Helper
+namespace CordobaVuela.Datos.Helper
 {
     //Resumen:
     //      La clase BDHelper permite quitar del código del formulario todo lo relacionado con el acceso a bd.
@@ -19,7 +19,7 @@ namespace PrimerAppEnCapas.Datos.Helper
 
         private DBHelper()
         {
-            string_conexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=CordobaVuela;Integrated Security=True";
+            string_conexion = "Data Source=LAPTOP-IKTA63TC\\SQLEXPRESS;Initial Catalog=CordobaVuela;Integrated Security=True";
         }
 
         public static DBHelper getDBHelper()

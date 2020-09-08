@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CordobaVuela.Datos.Dao.Interfaz;
 using CordobaVuela.Negocio.Entidades;
-using PrimerAppEnCapas.Datos.Helper;
+using CordobaVuela.Datos.Helper;
 
 namespace CordobaVuela.Datos.Dao.Implementacion
 {

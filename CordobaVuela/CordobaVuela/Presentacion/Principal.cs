@@ -55,5 +55,27 @@ namespace CordobaVuela.Presentacion
                 Environment.Exit(0);
             }
         }
+
+        private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void TransparentToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void registrarAeropuertoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AltaAeropuerto ventana = new AltaAeropuerto(lblUsuario.Text);
+            ventana.Show();
+            this.Hide();
+        }
     }
 }
