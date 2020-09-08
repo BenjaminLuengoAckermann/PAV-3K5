@@ -8,20 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CordobaVuela.Negocio.Entidades;
+using CordobaVuela.Negocio.Servicios;
 
 namespace CordobaVuela.Presentacion
 {
     public partial class Principal : Form
     {
-        public Principal(string usu)
+        private UsuarioService service;
+        private Usuario usu;
+
+        public Principal(Usuario usu)
         {
             InitializeComponent();
-            lblUsuario.Text = "Usuario Logueado: " + usu;
+            service = new UsuarioService();
+            this.usu = usu;
+            lblUsuario.Text = "Usuario Logueado: " + usu.IdUsuario.ToString();
         }
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pasajerosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,9 +79,18 @@ namespace CordobaVuela.Presentacion
 
         private void registrarAeropuertoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AltaAeropuerto ventana = new AltaAeropuerto(lblUsuario.Text);
-            ventana.Show();
-            this.Hide();
+
+            if (service.ValidarPermiso(usu))
+            {
+                AltaAeropuerto ventana = new AltaAeropuerto(usu);
+                ventana.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Acceso unicamente para personal de CordobaVuela.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
     }
 }

@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CordobaVuela.Negocio.Entidades;
 
 namespace CordobaVuela.Presentacion
 {
     public partial class AltaAeropuerto : Form
     {
-        public AltaAeropuerto(string usu)
+        private Usuario us;
+
+        public AltaAeropuerto(Usuario usu)
         {
             InitializeComponent();
-           
-            lblUsu.Text = usu;
+            this.us = usu;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -45,7 +47,7 @@ namespace CordobaVuela.Presentacion
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Principal ventana = new Principal(lblUsu.Text);
+            Principal ventana = new Principal(us);
             ventana.Show();
             this.Hide();
         }

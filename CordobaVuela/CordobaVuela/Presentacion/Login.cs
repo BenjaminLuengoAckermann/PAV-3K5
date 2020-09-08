@@ -60,7 +60,7 @@ namespace CordobaVuela
              Usuario logueado = new Usuario(txtUsuario.Text, txtPassword.Text);
              if (service.validarUsuario(logueado))
               {
-              Principal ventana = new Principal(logueado.IdUsuario);
+              Principal ventana = new Principal(logueado);
               ventana.Show();
               this.Hide();
              }

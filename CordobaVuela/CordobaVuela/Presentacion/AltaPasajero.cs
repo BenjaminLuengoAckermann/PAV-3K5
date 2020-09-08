@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CordobaVuela.Negocio.Entidades;
 
 namespace CordobaVuela.Presentacion
 {
@@ -107,7 +108,8 @@ namespace CordobaVuela.Presentacion
         {
             if (ValidarCampos())
             {
-                Principal ventana = new Principal(txtNombre.Text);
+                Usuario usu = new Usuario(txtNombre.Text, txtPassword.Text);
+                Principal ventana = new Principal(usu);
                 ventana.Show();
                 this.Hide();
             }

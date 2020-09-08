@@ -67,6 +67,17 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return false;
         }
 
+        public bool PermisoUser(Usuario u)
+        {
+            string sql = "SELECT * FROM empleado e INNER JOIN usuario u ON (u.idUsuario = e.idUsuario) WHERE u.idUsuario LIKE '"  + u.IdUsuario + "'";
+            DataTable UsuarioDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+
+            if (UsuarioDT.Rows.Count == 1)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }

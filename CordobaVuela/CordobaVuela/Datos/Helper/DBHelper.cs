@@ -19,7 +19,7 @@ namespace CordobaVuela.Datos.Helper
 
         private DBHelper()
         {
-            string_conexion = "Data Source=LAPTOP-IKTA63TC\\SQLEXPRESS;Initial Catalog=CordobaVuela;Integrated Security=True";
+            string_conexion = "Data Source=.\\SQLEXPRESS;Initial Catalog=CordobaVuela;Integrated Security=True";
         }
 
         public static DBHelper getDBHelper()
