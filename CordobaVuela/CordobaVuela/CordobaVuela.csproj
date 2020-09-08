@@ -46,10 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\Dao\Implementacion\AeropuertoDaoSqlImp.cs" />
+    <Compile Include="Datos\Dao\Implementacion\CiudadDaoSqlImp.cs" />
+    <Compile Include="Datos\Dao\Implementacion\PaisDaoSqlImp.cs" />
+    <Compile Include="Datos\Dao\Implementacion\ProvinciaDaoSqlImp.cs" />
     <Compile Include="Datos\Dao\Implementacion\UsuarioDaoSqlImp.cs" />
     <Compile Include="Datos\Dao\Interfaz\IDao.cs" />
     <Compile Include="Datos\Helper\DBHelper.cs" />
+    <Compile Include="Negocio\Entidades\Aeropuerto.cs" />
+    <Compile Include="Negocio\Entidades\Ciudad.cs" />
+    <Compile Include="Negocio\Entidades\Pais.cs" />
+    <Compile Include="Negocio\Entidades\Provincia.cs" />
     <Compile Include="Negocio\Entidades\Usuario.cs" />
+    <Compile Include="Negocio\Servicios\AeropuertoService.cs" />
+    <Compile Include="Negocio\Servicios\CiudadService.cs" />
+    <Compile Include="Negocio\Servicios\PaisService.cs" />
     <Compile Include="Negocio\Servicios\UsuarioService.cs" />
     <Compile Include="Presentacion\AltaAeropuerto.cs">
       <SubType>Form</SubType>

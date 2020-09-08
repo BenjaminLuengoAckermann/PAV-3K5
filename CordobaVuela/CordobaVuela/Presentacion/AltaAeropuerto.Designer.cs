@@ -32,15 +32,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cmbCiudad = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCrearCuenta = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblUsu = new System.Windows.Forms.Label();
+            this.cmbPais = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbProvincia = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCordovaVuela
@@ -68,32 +70,26 @@
             // cmbCiudad
             // 
             this.cmbCiudad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudad.FormattingEnabled = true;
-            this.cmbCiudad.Location = new System.Drawing.Point(176, 158);
+            this.cmbCiudad.Location = new System.Drawing.Point(176, 215);
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(167, 21);
             this.cmbCiudad.TabIndex = 36;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(176, 128);
+            this.txtNombre.Location = new System.Drawing.Point(176, 99);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(167, 20);
             this.txtNombre.TabIndex = 35;
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(176, 97);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(167, 20);
-            this.txtId.TabIndex = 34;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(100, 162);
+            this.label2.Location = new System.Drawing.Point(100, 219);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 17);
             this.label2.TabIndex = 33;
@@ -104,29 +100,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(99, 128);
+            this.label1.Location = new System.Drawing.Point(93, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 32;
-            this.label1.Text = "Nombre";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblUsuario.Location = new System.Drawing.Point(18, 98);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(158, 17);
-            this.lblUsuario.TabIndex = 31;
-            this.lblUsuario.Text = "Código Identificador:";
+            this.label1.Text = "Nombre:";
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.Location = new System.Drawing.Point(96, 248);
+            this.btnLimpiar.Location = new System.Drawing.Point(86, 315);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(76, 29);
             this.btnLimpiar.TabIndex = 40;
@@ -138,18 +123,19 @@
             // 
             this.btnCrearCuenta.BackColor = System.Drawing.Color.PaleGreen;
             this.btnCrearCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCrearCuenta.Location = new System.Drawing.Point(277, 204);
+            this.btnCrearCuenta.Location = new System.Drawing.Point(267, 271);
             this.btnCrearCuenta.Name = "btnCrearCuenta";
             this.btnCrearCuenta.Size = new System.Drawing.Size(76, 29);
             this.btnCrearCuenta.TabIndex = 39;
             this.btnCrearCuenta.Text = "Registrar";
             this.btnCrearCuenta.UseVisualStyleBackColor = false;
+            this.btnCrearCuenta.Click += new System.EventHandler(this.btnCrearCuenta_Click);
             // 
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVolver.Location = new System.Drawing.Point(185, 249);
+            this.btnVolver.Location = new System.Drawing.Point(175, 316);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(76, 29);
             this.btnVolver.TabIndex = 38;
@@ -161,7 +147,7 @@
             // 
             this.btnSalir.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.Location = new System.Drawing.Point(277, 248);
+            this.btnSalir.Location = new System.Drawing.Point(267, 315);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(76, 29);
             this.btnSalir.TabIndex = 37;
@@ -174,18 +160,65 @@
             this.lblUsu.AutoSize = true;
             this.lblUsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblUsu.Location = new System.Drawing.Point(27, 285);
+            this.lblUsu.Location = new System.Drawing.Point(17, 352);
             this.lblUsu.Name = "lblUsu";
             this.lblUsu.Size = new System.Drawing.Size(64, 17);
             this.lblUsu.TabIndex = 41;
             this.lblUsu.Text = "Nombre";
+            // 
+            // cmbPais
+            // 
+            this.cmbPais.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPais.FormattingEnabled = true;
+            this.cmbPais.Location = new System.Drawing.Point(176, 135);
+            this.cmbPais.Name = "cmbPais";
+            this.cmbPais.Size = new System.Drawing.Size(167, 21);
+            this.cmbPais.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(119, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "País:";
+            // 
+            // cmbProvincia
+            // 
+            this.cmbProvincia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProvincia.FormattingEnabled = true;
+            this.cmbProvincia.Location = new System.Drawing.Point(177, 179);
+            this.cmbProvincia.Name = "cmbProvincia";
+            this.cmbProvincia.Size = new System.Drawing.Size(167, 21);
+            this.cmbProvincia.TabIndex = 45;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(83, 178);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 17);
+            this.label4.TabIndex = 44;
+            this.label4.Tag = "";
+            this.label4.Text = "Provincia:";
             // 
             // AltaAeropuerto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(434, 311);
+            this.ClientSize = new System.Drawing.Size(434, 511);
+            this.Controls.Add(this.cmbProvincia);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbPais);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblUsu);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnCrearCuenta);
@@ -193,17 +226,16 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cmbCiudad);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblCordovaVuela);
-            this.MaximumSize = new System.Drawing.Size(450, 350);
-            this.MinimumSize = new System.Drawing.Size(450, 350);
+            this.MaximumSize = new System.Drawing.Size(450, 550);
+            this.MinimumSize = new System.Drawing.Size(450, 550);
             this.Name = "AltaAeropuerto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Aeropuerto";
+            this.Load += new System.EventHandler(this.AltaAeropuerto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,14 +247,16 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbCiudad;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCrearCuenta;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblUsu;
+        private System.Windows.Forms.ComboBox cmbPais;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbProvincia;
+        private System.Windows.Forms.Label label4;
     }
 }

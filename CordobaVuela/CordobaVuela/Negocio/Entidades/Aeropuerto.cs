@@ -6,7 +6,32 @@ using System.Threading.Tasks;
 
 namespace CordobaVuela.Negocio.Entidades
 {
-    class Aeropuerto
+    public class Aeropuerto
     {
+        public int IdAeropuerto { get; set; }
+        public string Nombre { get; set; }
+        public int IdCiudad { get; set; }
+
+        public Aeropuerto()
+        {
+
+        }
+
+
+        public Aeropuerto(int idAero, string nom, int idCiu)
+        {
+            this.IdAeropuerto = idAero;
+            this.Nombre = nom;
+            this.IdCiudad = idCiu;
+
+        }
+
+        public Aeropuerto(string nom, int idCiu)
+        {
+            
+            this.Nombre = nom;
+            this.IdCiudad = idCiu;
+
+        }
     }
 }

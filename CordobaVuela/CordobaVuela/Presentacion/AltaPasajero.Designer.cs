@@ -237,6 +237,7 @@
             // cmbTipoDocumento
             // 
             this.cmbTipoDocumento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoDocumento.FormattingEnabled = true;
             this.cmbTipoDocumento.Location = new System.Drawing.Point(202, 173);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";

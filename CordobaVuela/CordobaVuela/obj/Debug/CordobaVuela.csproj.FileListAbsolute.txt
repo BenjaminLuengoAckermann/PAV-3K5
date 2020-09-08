@@ -58,3 +58,16 @@ C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\P
 C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\Proyecto\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\Proyecto\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.exe
 C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\Proyecto\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.pdb
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.exe.config
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.exe
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.pdb
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csprojAssemblyReference.cache
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.AltaAeropuerto.resources
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.AltaPasajero.resources
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.frmLogin.resources
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.Principal.resources
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Properties.Resources.resources
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csproj.GenerateResource.cache
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csproj.CoreCompileInputs.cache
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.exe
+C:\Users\snowd\Documents\UTN\PAVI\TRABAJO_PRACTICO\PAV-3K5\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.pdb
