@@ -36,6 +36,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return usu;
         }
 
+      
         public bool delete(string id)
         {           
             string sql = "DELETE FROM usuario WHERE id = " + id;
@@ -44,7 +45,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
         public bool add(Usuario usu)
         {
-            string sql = "INSERT INTO usuario (idUsuario, password) VALUES ("+ usu.IdUsuario+ ", "+ usu.Password+")" ;
+            string sql = "INSERT INTO usuario (idUsuario, password) VALUES ('" + usu.IdUsuario + "', '" + usu.Password + "')";
            
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }
@@ -78,6 +79,19 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             }
             return false;
         }
+
+
+        public bool ValidarUsuario(string nombre)
+        {
+            string sql = "SELECT * FROM usuario WHERE idUsuario LIKE '" + nombre + "'";
+            DataTable UsuarioDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            if (UsuarioDT.Rows.Count == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }

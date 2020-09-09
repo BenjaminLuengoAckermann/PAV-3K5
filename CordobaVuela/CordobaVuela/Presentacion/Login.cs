@@ -27,7 +27,7 @@ namespace CordobaVuela
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             // Se cierra la app
-            DialogResult result = MessageBox.Show("Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             
             if (result == DialogResult.Yes)
             {

@@ -36,6 +36,12 @@ namespace CordobaVuela.Negocio.Servicios
         {
             return dao.PermisoUser(u);
         }
+    
+        public bool ValidarNombreUsuario (string nombre)
+        {
+            return dao.ValidarUsuario(nombre);
+        }
+    
     }
 
     

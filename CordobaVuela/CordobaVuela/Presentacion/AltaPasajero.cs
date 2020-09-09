@@ -8,19 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CordobaVuela.Negocio.Entidades;
+using CordobaVuela.Negocio.Servicios;
 
 namespace CordobaVuela.Presentacion
 {
     public partial class AltaPasajero : Form
+
+ 
     {
+        private UsuarioService serviceUsu;
+
         public AltaPasajero()
         {
             InitializeComponent();
+            serviceUsu = new UsuarioService();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             
             if (result == DialogResult.Yes)
             {
@@ -106,12 +112,20 @@ namespace CordobaVuela.Presentacion
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            if (ValidarCampos() && ValidarNombreUsuario())
             {
-                Usuario usu = new Usuario(txtNombre.Text, txtPassword.Text);
-                Principal ventana = new Principal(usu);
-                ventana.Show();
-                this.Hide();
+                bool result = serviceUsu.CrearUsuario(txtNomUsu.Text, txtPassword.Text);
+                
+                if (result) 
+                {
+                    MessageBox.Show("Se ha registrado correctamente el usuario!", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Usuario usu = new Usuario(txtNomUsu.Text, txtPassword.Text);
+                    Principal ventana = new Principal(usu);
+                    ventana.Show();
+                    this.Hide();
+                }
+                    
+                
             }
             
         }
@@ -142,12 +156,12 @@ namespace CordobaVuela.Presentacion
 
             if (ValidarCampo(txtNombre) || ValidarCampo(txtApellido) || ValidarCampo(txtNomUsu) || ValidarCampo(txtPassword) || ValidarCampo(txtRepitaPassword) || ValidarCampo(mskDocumento) || ValidarCampo(mskNacimiento))
             {
-                MessageBox.Show("Error. Debe ingresar todos los campos");
+                MessageBox.Show("Error. Debe ingresar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (txtPassword.Text != txtRepitaPassword.Text)
             {
-                MessageBox.Show("Error. Las contraseñas deben coincidir");
+                MessageBox.Show("Error. Las contraseñas deben coincidir", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtRepitaPassword.Text = "";
                 txtRepitaPassword.Focus();
                 return false;
@@ -156,5 +170,19 @@ namespace CordobaVuela.Presentacion
 
         }
 
+        private bool ValidarNombreUsuario()
+        {
+            if (serviceUsu.ValidarNombreUsuario(txtNomUsu.Text.ToString()))
+                {
+                    return true;
+                }
+            
+            MessageBox.Show("Ese nombre de usuario ya esta registrado. Por favor, ingrese otro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            txtNomUsu.Text = "";
+            txtNomUsu.Focus();
+            return false;
+        }
+    
+    
     }
 }

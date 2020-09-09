@@ -60,7 +60,7 @@
             this.btnSalir.Location = new System.Drawing.Point(293, 420);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(76, 29);
-            this.btnSalir.TabIndex = 6;
+            this.btnSalir.TabIndex = 12;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -72,7 +72,7 @@
             this.btnVolver.Location = new System.Drawing.Point(201, 421);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(76, 29);
-            this.btnVolver.TabIndex = 7;
+            this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -192,7 +192,7 @@
             this.btnCrearCuenta.Location = new System.Drawing.Point(293, 376);
             this.btnCrearCuenta.Name = "btnCrearCuenta";
             this.btnCrearCuenta.Size = new System.Drawing.Size(76, 29);
-            this.btnCrearCuenta.TabIndex = 17;
+            this.btnCrearCuenta.TabIndex = 9;
             this.btnCrearCuenta.Text = "Crear";
             this.btnCrearCuenta.UseVisualStyleBackColor = false;
             this.btnCrearCuenta.Click += new System.EventHandler(this.btnCrearCuenta_Click);
@@ -202,21 +202,21 @@
             this.txtNombre.Location = new System.Drawing.Point(202, 112);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(167, 20);
-            this.txtNombre.TabIndex = 18;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(202, 143);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(167, 20);
-            this.txtApellido.TabIndex = 19;
+            this.txtApellido.TabIndex = 2;
             // 
             // txtNomUsu
             // 
             this.txtNomUsu.Location = new System.Drawing.Point(202, 279);
             this.txtNomUsu.Name = "txtNomUsu";
             this.txtNomUsu.Size = new System.Drawing.Size(167, 20);
-            this.txtNomUsu.TabIndex = 21;
+            this.txtNomUsu.TabIndex = 6;
             // 
             // txtPassword
             // 
@@ -224,7 +224,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(167, 20);
-            this.txtPassword.TabIndex = 22;
+            this.txtPassword.TabIndex = 7;
             // 
             // txtRepitaPassword
             // 
@@ -232,7 +232,7 @@
             this.txtRepitaPassword.Name = "txtRepitaPassword";
             this.txtRepitaPassword.PasswordChar = '●';
             this.txtRepitaPassword.Size = new System.Drawing.Size(167, 20);
-            this.txtRepitaPassword.TabIndex = 23;
+            this.txtRepitaPassword.TabIndex = 8;
             // 
             // cmbTipoDocumento
             // 
@@ -242,7 +242,7 @@
             this.cmbTipoDocumento.Location = new System.Drawing.Point(202, 173);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(167, 21);
-            this.cmbTipoDocumento.TabIndex = 24;
+            this.cmbTipoDocumento.TabIndex = 3;
             // 
             // mskNacimiento
             // 
@@ -250,7 +250,7 @@
             this.mskNacimiento.Mask = "00/00/0000";
             this.mskNacimiento.Name = "mskNacimiento";
             this.mskNacimiento.Size = new System.Drawing.Size(75, 20);
-            this.mskNacimiento.TabIndex = 25;
+            this.mskNacimiento.TabIndex = 5;
             this.mskNacimiento.ValidatingType = typeof(System.DateTime);
             // 
             // btnLimpiar
@@ -261,7 +261,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(112, 420);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(76, 29);
-            this.btnLimpiar.TabIndex = 27;
+            this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -272,7 +272,7 @@
             this.mskDocumento.Mask = "00000000";
             this.mskDocumento.Name = "mskDocumento";
             this.mskDocumento.Size = new System.Drawing.Size(75, 20);
-            this.mskDocumento.TabIndex = 28;
+            this.mskDocumento.TabIndex = 4;
             this.mskDocumento.ValidatingType = typeof(int);
             // 
             // label8
