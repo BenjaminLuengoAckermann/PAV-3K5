@@ -114,18 +114,22 @@ namespace CordobaVuela.Presentacion
         {
             if (ValidarCampos() && ValidarNombreUsuario())
             {
-                bool result = serviceUsu.CrearUsuario(txtNomUsu.Text, txtPassword.Text);
-                
-                if (result) 
+                if (txtPassword.TextLength > 8 || txtRepitaPassword.TextLength > 8)
                 {
-                    MessageBox.Show("Se ha registrado correctamente el usuario!", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Usuario usu = new Usuario(txtNomUsu.Text, txtPassword.Text);
-                    Principal ventana = new Principal(usu);
-                    ventana.Show();
-                    this.Hide();
+                    bool result = serviceUsu.CrearUsuario(txtNomUsu.Text, txtPassword.Text);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Se ha registrado correctamente el usuario!", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Usuario usu = new Usuario(txtNomUsu.Text, txtPassword.Text);
+                        Principal ventana = new Principal(usu);
+                        ventana.Show();
+                        this.Hide();
+                    }
                 }
-                    
-                
+                else {
+                    MessageBox.Show("ERROR! La contraseña debe ser de al menos 8 caracteres", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             
         }
