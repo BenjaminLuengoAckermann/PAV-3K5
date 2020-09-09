@@ -44,7 +44,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
         public bool add(Ciudad ciudad)
         {
-            string sql = "INSERT INTO pais (id, nombre) VALUES (" + ciudad.IdCiudad + ", " + ciudad.Nombre + ")";
+            string sql = "INSERT INTO pais (id, nombre) VALUES (" + ciudad.IdCiudad + ", '" + ciudad.Nombre + "')";
 
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }
@@ -86,7 +86,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
         public Ciudad findByNombre(string nom)
         {
-            string sql = "SELECT * FROM ciudad c WHERE c.nombre = " + nom;
+            string sql = "SELECT * FROM ciudad c WHERE c.nombre = " + "'" + nom + "'";
             DataTable CiudadDT = DBHelper.getDBHelper().ConsultaSQL(sql);
 
             if (CiudadDT != null)

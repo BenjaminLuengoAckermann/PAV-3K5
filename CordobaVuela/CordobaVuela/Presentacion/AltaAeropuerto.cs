@@ -18,6 +18,7 @@ namespace CordobaVuela.Presentacion
         private PaisService serviceP;
         private CiudadService serciceC;
         private AeropuertoService serviceA;
+        private ProvinciaService servicePcia;
 
         public AltaAeropuerto(Usuario usu)
         {
@@ -26,6 +27,9 @@ namespace CordobaVuela.Presentacion
             serviceP = new PaisService();
             serciceC = new CiudadService();
             serviceA = new AeropuertoService();
+            servicePcia = new ProvinciaService();
+            lblUsu.Text = "Usuario Logueado: " + usu.IdUsuario.ToString();
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -35,10 +39,12 @@ namespace CordobaVuela.Presentacion
 
         private void LimpiarCampos()
         {
-            cmbPais.Text = "";
-            cmbProvincia.Text = "";
+            cmbPais.Items.Clear() ;
+            cmbProvincia.Items.Clear();
             txtNombre.Text = "";
-            cmbCiudad.Text = "";
+            cmbCiudad.Items.Clear();
+            // Esta linea llama al metodo alta aeropueto para llenar de nuevo los combos
+            AltaAeropuerto_Load(null, null);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -73,6 +79,12 @@ namespace CordobaVuela.Presentacion
                 cmbPais.Items.Add(aux[i].Nombre.ToString());
             }
 
+            Provincia[] auxTres = servicePcia.ListadoDeProvincias();
+            for(int i = 0; i < auxTres.Length; i++)
+            {
+                cmbProvincia.Items.Add(auxTres[i].Nombre.ToString());
+            }
+
             Ciudad[] auxDos = serciceC.ListadoDeciudades();
             for (int i = 0; i < auxDos.Length; i++)
             {
@@ -82,24 +94,48 @@ namespace CordobaVuela.Presentacion
 
         }
 
+        
+       /* private void cmbPais_SelectedItemChanged (object sender, EventArgs e)
+        {
+            
+            if (cmbPais.SelectedValue.ToString() != "")
+            {
+                MessageBox.Show("AAA", "aLERTA"); //Chekeo si por lo menos llego aca pero no :(
+                string pais = cmbPais.SelectedValue.ToString();
+
+                Provincia[] auxTres = servicePcia.ListadoDeProvinciasPorPais(pais);
+                for (int i = 0; i < auxTres.Length; i++)
+                {
+                    cmbProvincia.Items.Add(auxTres[i].Nombre.ToString());
+                }
+
+                cmbPais.SelectedIndex = 0;
+
+
+            }
+
+        }*/
+
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
             //Se deberia llamar registrar aeropuerto, no crear cuenta. Despues lo cambiamos.
 
 
-            //Ciudad aux = serciceC.ObtenerCiudad(cmbCiudad.Text);
-           // Aeropuerto colab = new Aeropuerto(txtNombre.Text, aux.IdCiudad);
+            Ciudad aux = serciceC.ObtenerCiudad(cmbCiudad.Text);
+            Aeropuerto colab = new Aeropuerto(txtNombre.Text, (int) aux.IdCiudad);
             
-            //DialogResult result = MessageBox.Show("Esta seguro que desea agregar el aeropuerto?", "Agregar aeropuerto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Esta seguro que desea agregar el aeropuerto?", "Agregar aeropuerto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 
-            /*if (result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 serviceA.CrearAeropuerto(colab);
-                
+                this.Hide();
+                MessageBox.Show("Se ha registrado el aeropuerto correctamente!", "Registro de Aeropuerto Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Principal ventana = new Principal(us);
+                ventana.Show();
             }
-            Clava el programa. Creo que será por el insert
-             */
+             
 
         }
     }

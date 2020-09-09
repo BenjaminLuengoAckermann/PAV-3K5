@@ -40,7 +40,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
         public bool add(Aeropuerto aeropuerto)
         {
-            string sql = "INSERT INTO aeropuerto (nombre, idCiudad) VALUES ('" + aeropuerto.Nombre + "', " + aeropuerto.IdCiudad + ")";
+            string sql = "INSERT INTO aeropuerto (nombre, idCiudad) VALUES ('" + aeropuerto.Nombre + "', " +  aeropuerto.IdCiudad + ")";
 
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }

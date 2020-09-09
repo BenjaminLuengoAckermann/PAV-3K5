@@ -61,6 +61,7 @@
     <Compile Include="Negocio\Servicios\AeropuertoService.cs" />
     <Compile Include="Negocio\Servicios\CiudadService.cs" />
     <Compile Include="Negocio\Servicios\PaisService.cs" />
+    <Compile Include="Negocio\Servicios\ProvinciaService.cs" />
     <Compile Include="Negocio\Servicios\UsuarioService.cs" />
     <Compile Include="Presentacion\AltaAeropuerto.cs">
       <SubType>Form</SubType>

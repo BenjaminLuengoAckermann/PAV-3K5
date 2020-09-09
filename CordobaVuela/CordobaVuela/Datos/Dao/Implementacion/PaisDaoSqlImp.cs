@@ -45,7 +45,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
         public bool add(Pais pais)
         {
-            string sql = "INSERT INTO pais (id, ) VALUES (" + pais.IdPais + ", " + pais.Nombre + ")";
+            string sql = "INSERT INTO pais (id, nombre) VALUES (" + pais.IdPais + ", '" + pais.Nombre + "')";
 
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }
