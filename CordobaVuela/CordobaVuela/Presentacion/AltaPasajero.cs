@@ -114,7 +114,7 @@ namespace CordobaVuela.Presentacion
         {
             if (ValidarCampos() && ValidarNombreUsuario())
             {
-                if (txtPassword.TextLength > 8 || txtRepitaPassword.TextLength > 8)
+                if (txtPassword.TextLength >= 8 || txtRepitaPassword.TextLength >= 8)
                 {
                     bool result = serviceUsu.CrearUsuario(txtNomUsu.Text, txtPassword.Text);
 

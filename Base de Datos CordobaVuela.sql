@@ -241,19 +241,93 @@ INSERT INTO pasajero (documento, idTipoDoc, nombre, apellido, fecha_nac, idUsuar
 VALUES (40005333, 2, 'Ramiro', 'Schopenhauer', CONVERT(DATETIME, '5/04/1950', 103), 'daddy_issues777') 
 
 
+SET IDENTITY_INSERT Pais ON
+
+insert into pais (id, nombre) values (4,'Uruguay')
+
+UPDATE pais
+set nombre = 'Brasil'
+where pais.id = 2;
+
+UPDATE pais
+set nombre = 'Colombia'
+where pais.id = 3;
+
+SET IDENTITY_INSERT Pais OFF
 
 
 
+SET IDENTITY_INSERT Provincia ON
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (1, 'Buenos Aires', 1)
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (2, 'Cordoba', 1)
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (3, 'Distrito Federal', 2)
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (4, 'Rio de Janeiro', 2)
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (5, 'Bogota', 3)
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (6, 'Bolivar', 3)
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (7, 'Montevideo', 4)
+
+INSERT INTO	provincia (id, nombre ,idPais)
+VALUES (8, 'Maldonado', 4)
+
+SET IDENTITY_INSERT Provincia OFF
 
 
 
+SET IDENTITY_INSERT Ciudad ON
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (1, 'La Plata', 1)
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (2, 'Cordoba', 2)
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (3, 'Brasilia', 3)
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (4, 'Rio de Janeiro', 4)
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (5, 'Bogota', 5)
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (6, 'Cartagena', 6)
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (7, 'Montevideo', 7)
+
+INSERT INTO	ciudad (id, nombre, idProvincia)
+VALUES (8, 'Punta del Este', 8)
+
+SET IDENTITY_INSERT Ciudad OFF
 
 
+SET IDENTITY_INSERT Empleado ON
 
+INSERT INTO	empleado (legajo, idUsuario)
+VALUES (9874, 'CheezyB')
 
+INSERT INTO	empleado (legajo, idUsuario)
+VALUES (9563, 'daddy_issues777')
 
+INSERT INTO	empleado (legajo, idUsuario)
+VALUES (8457, 'Kundo')
 
+INSERT INTO	empleado (legajo, idUsuario)
+VALUES (7456, 'Leandro')
 
-
-
-
+SET IDENTITY_INSERT Empleado OFF
