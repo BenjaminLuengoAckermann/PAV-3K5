@@ -26,6 +26,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return null;
         }
 
+     
         private Pais Mapper(DataRow paisRow)
         {
             Pais pais = new Pais();

@@ -17,13 +17,26 @@ namespace CordobaVuela.Presentacion
  
     {
         private UsuarioService serviceUsu;
+        private TipoDocumentoService serviceD;
 
+
+     
         public AltaPasajero()
         {
             InitializeComponent();
             serviceUsu = new UsuarioService();
+            serviceD = new TipoDocumentoService();
         }
 
+
+        private void AltaPasajero_Load(object sender, EventArgs e)
+        {
+            TipoDocumento[] aux = serviceD.ListadoDeTipoDocumento();
+            for (int i = 0; i < aux.Length; i++)
+            {
+                cmbTipoDocumento.Items.Add(aux[i].Nombre.ToString());
+            }
+        }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -42,12 +55,16 @@ namespace CordobaVuela.Presentacion
 
         }
 
-        //IMPORTANTE!!!!!!
-        //***************************************************************************************************************************************
-        //LOS METODOS QUE ESTAN DE MÁS PRIMERO SE BORRAN DESDE LOS EVENTOS DE LAS PROPIEDADES, Y RECIEN DESPUES SE BORRAN ACA, SINO SE CLAVA
-        //***************************************************************************************************************************************
-        
-        private void label1_Click(object sender, EventArgs e)
+     
+
+
+
+            //IMPORTANTE!!!!!!
+            //***************************************************************************************************************************************
+            //LOS METODOS QUE ESTAN DE MÁS PRIMERO SE BORRAN DESDE LOS EVENTOS DE LAS PROPIEDADES, Y RECIEN DESPUES SE BORRAN ACA, SINO SE CLAVA
+            //***************************************************************************************************************************************
+
+            private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -109,6 +126,7 @@ namespace CordobaVuela.Presentacion
         {
             LimpiarCampos();
         }
+
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
@@ -186,7 +204,7 @@ namespace CordobaVuela.Presentacion
             txtNomUsu.Focus();
             return false;
         }
-    
-    
+
+
     }
 }

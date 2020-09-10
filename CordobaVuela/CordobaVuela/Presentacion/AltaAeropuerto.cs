@@ -16,7 +16,7 @@ namespace CordobaVuela.Presentacion
     {
         private Usuario us;
         private PaisService serviceP;
-        private CiudadService serciceC;
+        private CiudadService serviceC;
         private AeropuertoService serviceA;
         private ProvinciaService servicePcia;
 
@@ -25,7 +25,7 @@ namespace CordobaVuela.Presentacion
             InitializeComponent();
             this.us = usu;
             serviceP = new PaisService();
-            serciceC = new CiudadService();
+            serviceC = new CiudadService();
             serviceA = new AeropuertoService();
             servicePcia = new ProvinciaService();
             lblUsu.Text = "Usuario Logueado: " + usu.IdUsuario.ToString();
@@ -71,6 +71,7 @@ namespace CordobaVuela.Presentacion
 
         }
 
+        // Los siguientes tres metodos se usan para coordinar el Cascading ComboBox
         private void AltaAeropuerto_Load(object sender, EventArgs e)
         {
             Pais[] aux = serviceP.ListadoDePaises();
@@ -79,49 +80,51 @@ namespace CordobaVuela.Presentacion
                 cmbPais.Items.Add(aux[i].Nombre.ToString());
             }
 
-            Provincia[] auxTres = servicePcia.ListadoDeProvincias();
-            for(int i = 0; i < auxTres.Length; i++)
-            {
-                cmbProvincia.Items.Add(auxTres[i].Nombre.ToString());
-            }
-
-            Ciudad[] auxDos = serciceC.ListadoDeciudades();
-            for (int i = 0; i < auxDos.Length; i++)
-            {
-                cmbCiudad.Items.Add(auxDos[i].Nombre.ToString());
-            }
-
-
+           
         }
 
         
-       /* private void cmbPais_SelectedItemChanged (object sender, EventArgs e)
+        // Aqui consulta las provincias segun el pais elegido
+        private void cmbPais_SelectedItemChanged (object sender, EventArgs e)
         {
-            
-            if (cmbPais.SelectedValue.ToString() != "")
-            {
-                MessageBox.Show("AAA", "aLERTA"); //Chekeo si por lo menos llego aca pero no :(
-                string pais = cmbPais.SelectedValue.ToString();
+                            
+            string pais = cmbPais.Text.ToString();
 
-                Provincia[] auxTres = servicePcia.ListadoDeProvinciasPorPais(pais);
+            // Limpia los combos para que solo muestre lo referido al pais elegido
+            cmbProvincia.Items.Clear();
+            cmbCiudad.Items.Clear();
+
+            Provincia[] auxTres = servicePcia.ListadoDeProvinciasPorPais(pais);
                 for (int i = 0; i < auxTres.Length; i++)
                 {
                     cmbProvincia.Items.Add(auxTres[i].Nombre.ToString());
                 }
+            
+        }
 
-                cmbPais.SelectedIndex = 0;
 
+        // Aqui consulta las ciudades segun la provincia elegida
+        private void cmbProvincia_SelectedItemChanged (object sender, EventArgs e)
+        {
+            string pcia = cmbProvincia.Text.ToString();
 
+            // Limpia el combo para que solo muestre lo referido al pais y provincia elegido
+            cmbCiudad.Items.Clear();
+
+            Ciudad[] aux = serviceC.ListadoDeCiudadesPorProvincia(pcia);
+            for (int i = 0; i < aux.Length; i++)
+            {
+                cmbCiudad.Items.Add(aux[i].Nombre.ToString());
             }
 
-        }*/
+        }
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
             //Se deberia llamar registrar aeropuerto, no crear cuenta. Despues lo cambiamos.
 
 
-            Ciudad aux = serciceC.ObtenerCiudad(cmbCiudad.Text);
+            Ciudad aux = serviceC.ObtenerCiudad(cmbCiudad.Text);
             Aeropuerto colab = new Aeropuerto(txtNombre.Text, (int) aux.IdCiudad);
             
             DialogResult result = MessageBox.Show("¿Esta seguro que desea agregar el aeropuerto?", "Agregar aeropuerto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

@@ -39,13 +39,14 @@
             this.clasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aeropuertosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tarifasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.consultarAeropuertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opRegAeropuerto = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarAeropuertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarAeropuertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tarifasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pasajerosToolStripMenuItem,
             this.vuelosToolStripMenuItem,
@@ -143,39 +144,12 @@
             this.aeropuertosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aeropuertosToolStripMenuItem1.Text = "Aeropuertos";
             // 
-            // tarifasToolStripMenuItem
-            // 
-            this.tarifasToolStripMenuItem.Name = "tarifasToolStripMenuItem";
-            this.tarifasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tarifasToolStripMenuItem.Text = "Tarifas";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(29, 435);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(141, 17);
-            this.lblUsuario.TabIndex = 11;
-            this.lblUsuario.Text = "Usuario Logueado";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.Location = new System.Drawing.Point(696, 420);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(76, 29);
-            this.btnSalir.TabIndex = 12;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // consultarAeropuertoToolStripMenuItem
             // 
             this.consultarAeropuertoToolStripMenuItem.Name = "consultarAeropuertoToolStripMenuItem";
             this.consultarAeropuertoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.consultarAeropuertoToolStripMenuItem.Text = "Consultar Aeropuerto";
+            this.consultarAeropuertoToolStripMenuItem.Click += new System.EventHandler(this.consultarAeropuertoToolStripMenuItem_Click);
             // 
             // opRegAeropuerto
             // 
@@ -196,12 +170,51 @@
             this.eliminarAeropuertoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.eliminarAeropuertoToolStripMenuItem.Text = "Eliminar Aeropuerto";
             // 
+            // tarifasToolStripMenuItem
+            // 
+            this.tarifasToolStripMenuItem.Name = "tarifasToolStripMenuItem";
+            this.tarifasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tarifasToolStripMenuItem.Text = "Tarifas";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblUsuario.Location = new System.Drawing.Point(29, 435);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(110, 13);
+            this.lblUsuario.TabIndex = 11;
+            this.lblUsuario.Text = "Usuario Logueado";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.Location = new System.Drawing.Point(696, 420);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(76, 29);
+            this.btnSalir.TabIndex = 12;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold);
+            this.lblVersion.Location = new System.Drawing.Point(603, 52);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(54, 9);
+            this.lblVersion.TabIndex = 13;
+            this.lblVersion.Text = "Version 1.0";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblCordovaVuela);
@@ -241,5 +254,6 @@
         private System.Windows.Forms.ToolStripMenuItem opRegAeropuerto;
         private System.Windows.Forms.ToolStripMenuItem modificarAeropuertoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarAeropuertoToolStripMenuItem;
+        private System.Windows.Forms.Label lblVersion;
     }
 }

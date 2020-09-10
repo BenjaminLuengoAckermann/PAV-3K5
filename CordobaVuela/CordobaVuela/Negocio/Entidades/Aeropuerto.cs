@@ -12,6 +12,7 @@ namespace CordobaVuela.Negocio.Entidades
         public string Nombre { get; set; }
         public int IdCiudad { get; set; }
 
+
         public Aeropuerto()
         {
 

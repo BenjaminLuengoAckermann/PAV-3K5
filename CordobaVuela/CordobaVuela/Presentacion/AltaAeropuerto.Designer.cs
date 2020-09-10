@@ -51,7 +51,7 @@
             this.lblCordovaVuela.AutoSize = true;
             this.lblCordovaVuela.Font = new System.Drawing.Font("Eras Bold ITC", 18F);
             this.lblCordovaVuela.ForeColor = System.Drawing.Color.SkyBlue;
-            this.lblCordovaVuela.Location = new System.Drawing.Point(1, 9);
+            this.lblCordovaVuela.Location = new System.Drawing.Point(10, 9);
             this.lblCordovaVuela.Name = "lblCordovaVuela";
             this.lblCordovaVuela.Size = new System.Drawing.Size(187, 28);
             this.lblCordovaVuela.TabIndex = 8;
@@ -76,14 +76,14 @@
             this.cmbCiudad.Location = new System.Drawing.Point(176, 215);
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(167, 21);
-            this.cmbCiudad.TabIndex = 36;
+            this.cmbCiudad.TabIndex = 4;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(176, 99);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(167, 20);
-            this.txtNombre.TabIndex = 35;
+            this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -115,7 +115,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(86, 315);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(76, 29);
-            this.btnLimpiar.TabIndex = 40;
+            this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -127,7 +127,7 @@
             this.btnCrearCuenta.Location = new System.Drawing.Point(267, 271);
             this.btnCrearCuenta.Name = "btnCrearCuenta";
             this.btnCrearCuenta.Size = new System.Drawing.Size(76, 29);
-            this.btnCrearCuenta.TabIndex = 39;
+            this.btnCrearCuenta.TabIndex = 5;
             this.btnCrearCuenta.Text = "Registrar";
             this.btnCrearCuenta.UseVisualStyleBackColor = false;
             this.btnCrearCuenta.Click += new System.EventHandler(this.btnCrearCuenta_Click);
@@ -139,7 +139,7 @@
             this.btnVolver.Location = new System.Drawing.Point(175, 316);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(76, 29);
-            this.btnVolver.TabIndex = 38;
+            this.btnVolver.TabIndex = 7;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -151,7 +151,7 @@
             this.btnSalir.Location = new System.Drawing.Point(267, 315);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(76, 29);
-            this.btnSalir.TabIndex = 37;
+            this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -159,13 +159,13 @@
             // lblUsu
             // 
             this.lblUsu.AutoSize = true;
-            this.lblUsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblUsu.Location = new System.Drawing.Point(17, 352);
+            this.lblUsu.Location = new System.Drawing.Point(12, 384);
             this.lblUsu.Name = "lblUsu";
-            this.lblUsu.Size = new System.Drawing.Size(64, 17);
+            this.lblUsu.Size = new System.Drawing.Size(50, 13);
             this.lblUsu.TabIndex = 41;
-            this.lblUsu.Text = "Nombre";
+            this.lblUsu.Text = "Usuario";
             // 
             // cmbPais
             // 
@@ -175,7 +175,8 @@
             this.cmbPais.Location = new System.Drawing.Point(176, 135);
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(167, 21);
-            this.cmbPais.TabIndex = 43;
+            this.cmbPais.TabIndex = 2;
+            this.cmbPais.SelectionChangeCommitted += new System.EventHandler(this.cmbPais_SelectedItemChanged);
             // 
             // label3
             // 
@@ -196,7 +197,8 @@
             this.cmbProvincia.Location = new System.Drawing.Point(177, 179);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(167, 21);
-            this.cmbProvincia.TabIndex = 45;
+            this.cmbProvincia.TabIndex = 3;
+            this.cmbProvincia.SelectionChangeCommitted += new System.EventHandler(this.cmbProvincia_SelectedItemChanged);
             // 
             // label4
             // 
@@ -215,7 +217,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(434, 511);
+            this.ClientSize = new System.Drawing.Size(434, 406);
             this.Controls.Add(this.cmbProvincia);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbPais);
@@ -232,8 +234,8 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblCordovaVuela);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(450, 550);
-            this.MinimumSize = new System.Drawing.Size(450, 550);
+            this.MaximumSize = new System.Drawing.Size(450, 445);
+            this.MinimumSize = new System.Drawing.Size(450, 445);
             this.Name = "AltaAeropuerto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Aeropuerto";

@@ -252,6 +252,7 @@
             this.mskNacimiento.Size = new System.Drawing.Size(75, 20);
             this.mskNacimiento.TabIndex = 5;
             this.mskNacimiento.ValidatingType = typeof(System.DateTime);
+            this.mskNacimiento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskNacimiento_MaskInputRejected);
             // 
             // btnLimpiar
             // 
@@ -274,6 +275,7 @@
             this.mskDocumento.Size = new System.Drawing.Size(75, 20);
             this.mskDocumento.TabIndex = 4;
             this.mskDocumento.ValidatingType = typeof(int);
+            this.mskDocumento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskDocumento_MaskInputRejected);
             // 
             // label8
             // 
@@ -321,6 +323,7 @@
             this.Name = "AltaPasajero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrarse";
+            this.Load += new System.EventHandler(this.AltaPasajero_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

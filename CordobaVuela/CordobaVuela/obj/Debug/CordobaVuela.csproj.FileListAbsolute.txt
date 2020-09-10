@@ -97,12 +97,14 @@ C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\B
 C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\BACKUP PROYECYO\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\BACKUP PROYECYO\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.exe
 C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\BACKUP PROYECYO\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.pdb
+C:\Users\Usuario\Desktop\Real Stuff\2020\Programacion De Aplicaciones Visuales\BACKUP PROYECYO\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.ConsultarAeropuerto.resources
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.exe.config
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.exe
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\bin\Debug\CordobaVuela.pdb
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.csprojAssemblyReference.cache
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.AltaAeropuerto.resources
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.AltaPasajero.resources
+C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.ConsultarAeropuerto.resources
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.frmLogin.resources
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Presentacion.Principal.resources
 C:\Users\PC\Desktop\Ingenieria en Sistemas\Tercer Año\Programacion de Aplicaciones Visuales\Trabajo Práctico Integrador - V3\PAV-3K5-Benji\CordobaVuela\CordobaVuela\obj\Debug\CordobaVuela.Properties.Resources.resources

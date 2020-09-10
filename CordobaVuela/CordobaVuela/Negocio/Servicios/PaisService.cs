@@ -22,7 +22,14 @@ namespace CordobaVuela.Negocio.Servicios
         {
             return dao.getPaises();
         }
+
+
+        /*public Pais FindById(int id)
+        {
+            return dao.findById2(id);
+        }
+        */
     }
 
-    
+
 }

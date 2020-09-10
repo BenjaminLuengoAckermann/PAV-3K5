@@ -10,6 +10,7 @@ namespace CordobaVuela.Negocio.Entidades
     {
         public int IdProvincia { get; set; }
         public string Nombre { get; set; }
+
         public string Pais { get; set; }
 
         public Provincia()

@@ -94,5 +94,12 @@ namespace CordobaVuela.Presentacion
                 return;
             }
         }
+
+        private void consultarAeropuertoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarAeropuerto ventana = new ConsultarAeropuerto(usu);
+            ventana.Show();
+            this.Hide();
+        }
     }
 }

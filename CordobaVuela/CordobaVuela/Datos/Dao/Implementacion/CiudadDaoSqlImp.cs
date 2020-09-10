@@ -95,5 +95,32 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             }
             return null;
         }
+
+
+        public string FindByIdAndReturnNombre(int id)
+        {
+            string sql = "SELECT * FROM ciudad c WHERE c.id = " + id;
+            DataTable CiudadDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+
+            if (CiudadDT != null)
+            {
+                return Mapper(CiudadDT.Rows[0]).Nombre.ToString();
+            }
+            return null;
+        }
+
+
+        public Ciudad[] getCiudadesPorProvincia(string pcia)
+        {
+            string sql = "SELECT * FROM ciudad c INNER JOIN provincia p ON (p.id = c.idProvincia) WHERE p.nombre LIKE '" + pcia + "'";
+            DataTable CiudadDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Ciudad[] ciudad = new Ciudad[CiudadDT.Rows.Count];
+            for (int i = 0; i < CiudadDT.Rows.Count; i++)
+            {
+                ciudad[i] = Mapper(CiudadDT.Rows[i]);
+            }
+            return ciudad;
+        }
+
     }
 }

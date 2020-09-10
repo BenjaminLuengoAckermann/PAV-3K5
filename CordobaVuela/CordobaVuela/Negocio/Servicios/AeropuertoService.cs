@@ -20,5 +20,27 @@ namespace CordobaVuela.Negocio.Servicios
         {
             return dao.add(a);
         }
+    
+        public Aeropuerto[] FindByNombre(string nombre)
+        {
+            return dao.FindByNombre(nombre);
+        }
+
+        public Aeropuerto[] getAll()
+        {
+            return dao.ObtenerTodo();
+        }
+
+        public Aeropuerto[] FindByNombreOrdenado(string nombre)
+        {
+            return dao.FindByNombreOrdenado(nombre);
+        }
+
+        public Aeropuerto[] getAllOrdenado()
+        {
+            return dao.ObtenerTodoOrdenado();
+        }
+
+
     }
 }

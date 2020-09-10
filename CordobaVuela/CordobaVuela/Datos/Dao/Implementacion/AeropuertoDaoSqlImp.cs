@@ -32,6 +32,31 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return aeropuerto;
         }
 
+        public Aeropuerto[] FindByNombre(string nombre)
+        {
+            string sql = "SELECT * FROM aeropuerto WHERE nombre LIKE '%" + nombre + "%'";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
+
+        public Aeropuerto[] FindByNombreOrdenado(string nombre)
+        {
+            string sql = "SELECT * FROM aeropuerto WHERE nombre LIKE '%" + nombre + "%' ORDER BY nombre";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
+
+
         public bool delete(string id)
         {
             string sql = "DELETE FROM aeropuerto WHERE id = " + id;
@@ -45,12 +70,37 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }
 
-        public IList<Aeropuerto> getAll()
+        public Aeropuerto[] ObtenerTodo()
         {
-            //falta completar implemtación
-            return null;
+            string sql = "SELECT * FROM aeropuerto";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+
         }
 
+        public Aeropuerto[] ObtenerTodoOrdenado()
+        {
+            string sql = "SELECT * FROM aeropuerto ORDER BY nombre";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+
+        }
+
+        public IList<Aeropuerto> getAll()
+        {
+            // Falta implementar, en realidad esta mas arriba pero de otra forma
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -28,5 +28,17 @@ namespace CordobaVuela.Negocio.Servicios
             return dao.findByNombre(nom);
         }
 
+
+        public string FindByIdAndReturnNombre(int id)
+        {
+            return dao.FindByIdAndReturnNombre(id);
+        }
+
+        public Ciudad[] ListadoDeCiudadesPorProvincia(string pcia)
+        {
+            return dao.getCiudadesPorProvincia(pcia);
+        }
     }
 }
+
+
