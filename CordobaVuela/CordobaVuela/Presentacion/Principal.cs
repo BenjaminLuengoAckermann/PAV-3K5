@@ -88,20 +88,18 @@ namespace CordobaVuela.Presentacion
 
         private void registrarAeropuertoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //AltaAeropuerto ventana = new AltaAeropuerto(usu);
-            //ventana.Show();
-            //this.Hide();
-            /*if (service.ValidarPermiso(usu))
-            {*/
+           
+            if (service.ValidarPermiso(usu))
+            {
                 AltaAeropuerto ventana = new AltaAeropuerto(usu);
                 ventana.Show();
                 this.Hide();
-            /*}
+            }
             else
             {
                 MessageBox.Show("Acceso unicamente para personal de CordobaVuela.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
-            }*/
+            }
         }
 
         private void consultarAeropuertoToolStripMenuItem_Click(object sender, EventArgs e)

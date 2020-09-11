@@ -45,7 +45,6 @@
             this.aeropuertosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarAeropuertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opRegAeropuerto = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarAeropuertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tarifasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.imlNoticias = new System.Windows.Forms.ImageList(this.components);
@@ -172,10 +171,9 @@
             // 
             this.aeropuertosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultarAeropuertoToolStripMenuItem,
-            this.opRegAeropuerto,
-            this.modificarAeropuertoToolStripMenuItem});
+            this.opRegAeropuerto});
             this.aeropuertosToolStripMenuItem1.Name = "aeropuertosToolStripMenuItem1";
-            this.aeropuertosToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.aeropuertosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aeropuertosToolStripMenuItem1.Text = "Aeropuertos";
             // 
             // consultarAeropuertoToolStripMenuItem
@@ -191,12 +189,6 @@
             this.opRegAeropuerto.Size = new System.Drawing.Size(188, 22);
             this.opRegAeropuerto.Text = "Registrar Aeropuerto";
             this.opRegAeropuerto.Click += new System.EventHandler(this.registrarAeropuertoToolStripMenuItem_Click);
-            // 
-            // modificarAeropuertoToolStripMenuItem
-            // 
-            this.modificarAeropuertoToolStripMenuItem.Name = "modificarAeropuertoToolStripMenuItem";
-            this.modificarAeropuertoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.modificarAeropuertoToolStripMenuItem.Text = "Modificar Aeropuerto";
             // 
             // tarifasToolStripMenuItem
             // 
@@ -237,9 +229,9 @@
             // pbxNoticias
             // 
             this.pbxNoticias.Image = global::CordobaVuela.Properties.Resources.covid_avion1;
-            this.pbxNoticias.Location = new System.Drawing.Point(77, 102);
+            this.pbxNoticias.Location = new System.Drawing.Point(32, 94);
             this.pbxNoticias.Name = "pbxNoticias";
-            this.pbxNoticias.Size = new System.Drawing.Size(600, 300);
+            this.pbxNoticias.Size = new System.Drawing.Size(341, 304);
             this.pbxNoticias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxNoticias.TabIndex = 15;
             this.pbxNoticias.TabStop = false;
@@ -247,11 +239,11 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold);
             this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblFecha.Location = new System.Drawing.Point(129, 52);
+            this.lblFecha.Location = new System.Drawing.Point(29, 52);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(140, 29);
+            this.lblFecha.Size = new System.Drawing.Size(72, 14);
             this.lblFecha.TabIndex = 16;
             this.lblFecha.Text = "Fecha y Hora";
             // 
@@ -308,7 +300,6 @@
         private System.Windows.Forms.ToolStripMenuItem aeropuertosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarAeropuertoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opRegAeropuerto;
-        private System.Windows.Forms.ToolStripMenuItem modificarAeropuertoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tarifasToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ImageList imlNoticias;

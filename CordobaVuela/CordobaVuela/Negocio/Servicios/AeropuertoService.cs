@@ -20,7 +20,11 @@ namespace CordobaVuela.Negocio.Servicios
         {
             return dao.add(a);
         }
-    
+
+        public bool ModificarAeropuerto(int id, string nombre, int ciudad)
+        {
+            return dao.modify(id, nombre, ciudad);
+        }
         public Aeropuerto[] FindByNombre(string nombre)
         {
             return dao.FindByNombre(nombre);

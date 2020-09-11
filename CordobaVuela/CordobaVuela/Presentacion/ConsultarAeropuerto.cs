@@ -112,6 +112,7 @@ namespace CordobaVuela.Presentacion
             {
                 bool selectedRow = dgvConsultarAeropuerto.CurrentRow.Index != -1;
                 btnEliminar.Enabled = selectedRow;
+                btnModificar.Enabled = selectedRow;
             }
             
         }
@@ -148,7 +149,37 @@ namespace CordobaVuela.Presentacion
             else
                 MessageBox.Show("Acceso unicamente para personal de CordobaVuela.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            // Primero validamos si tiene los permisos
+            if (serviceU.ValidarPermiso(usu))
+            {
+                // Chequeamos que la grilla tiene al menos una fila para quitar
+                if (dgvConsultarAeropuerto.Rows.Count > 0)
+                {
+                    //Aca abrimos el formulario para modificar
+                    int id = Convert.ToInt32(dgvConsultarAeropuerto.CurrentRow.Cells["colId"].Value);
+                    string nombre = (dgvConsultarAeropuerto.CurrentRow.Cells["colNombre"].Value).ToString();
+                    int idCiudad = Convert.ToInt32(dgvConsultarAeropuerto.CurrentRow.Cells["colIdCiudad"].Value);
+
+
+                    Aeropuerto aero = new Aeropuerto(id, nombre, idCiudad);
+                    frmModificarAeropuerto ventana = new frmModificarAeropuerto(usu, aero);
+                    this.Hide();
+                    ventana.Show();
+                    
+                }
+                else
+                    btnModificar.Enabled = false;
+
+            }
+            else
+                MessageBox.Show("Acceso unicamente para personal de CordobaVuela.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
     }
     }
+    
 
 

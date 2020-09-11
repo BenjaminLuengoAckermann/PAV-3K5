@@ -45,6 +45,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarAeropuerto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,7 +115,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConsultarAeropuerto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvConsultarAeropuerto.Location = new System.Drawing.Point(74, 116);
+            this.dgvConsultarAeropuerto.Location = new System.Drawing.Point(74, 99);
             this.dgvConsultarAeropuerto.Name = "dgvConsultarAeropuerto";
             this.dgvConsultarAeropuerto.ReadOnly = true;
             this.dgvConsultarAeropuerto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -161,7 +162,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(397, 355);
+            this.btnSalir.Location = new System.Drawing.Point(432, 376);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(76, 29);
             this.btnSalir.TabIndex = 5;
@@ -171,7 +172,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(291, 355);
+            this.btnVolver.Location = new System.Drawing.Point(331, 376);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(76, 29);
             this.btnVolver.TabIndex = 6;
@@ -182,7 +183,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Enabled = false;
-            this.btnEliminar.Location = new System.Drawing.Point(74, 272);
+            this.btnEliminar.Location = new System.Drawing.Point(129, 272);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(136, 29);
             this.btnEliminar.TabIndex = 7;
@@ -190,12 +191,24 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Enabled = false;
+            this.btnModificar.Location = new System.Drawing.Point(271, 272);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(136, 29);
+            this.btnModificar.TabIndex = 8;
+            this.btnModificar.Text = "Modificar Aeropuerto";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // ConsultarAeropuerto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(548, 450);
+            this.ClientSize = new System.Drawing.Size(548, 417);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnSalir);
@@ -228,5 +241,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdCiudad;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

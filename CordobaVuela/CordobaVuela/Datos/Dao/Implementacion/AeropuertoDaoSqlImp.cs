@@ -71,6 +71,13 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }
 
+        public bool modify(int id, string nombre, int idCiudad)
+        {
+            string sql = "UPDATE aeropuerto SET nombre = '" + nombre + "', idCiudad = " + idCiudad + " WHERE id = " + id+ " and borrado = 'N'";
+
+            return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
+        }
+
         public Aeropuerto[] ObtenerTodo()
         {
             string sql = "SELECT * FROM aeropuerto WHERE borrado = 'N' ";
