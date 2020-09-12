@@ -45,11 +45,15 @@ namespace CordobaVuela.Presentacion
             {
                 dgvConsultarAeropuerto.Rows.Clear();
                 Aeropuerto[] aeropuertos = serviceAero.FindByNombreOrdenado(txtNombreAeropuerto.Text);
-
-                foreach (Aeropuerto oAero in aeropuertos)
+                if (aeropuertos.Length == 0)
+                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
                 {
-                    dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString() });
+                    foreach (Aeropuerto oAero in aeropuertos)
+                    {
+                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() }); ;
 
+                    }
                 }
             }
 
@@ -58,8 +62,13 @@ namespace CordobaVuela.Presentacion
             {
                 dgvConsultarAeropuerto.Rows.Clear();
                 Aeropuerto[] aeropuertos = serviceAero.FindByNombre(txtNombreAeropuerto.Text);
-                foreach (Aeropuerto oAero in aeropuertos)
-                    dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString() });
+                if (aeropuertos.Length == 0)
+                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    foreach (Aeropuerto oAero in aeropuertos)
+                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
+                }
             }
 
             // No filtra pero ordena
@@ -67,8 +76,13 @@ namespace CordobaVuela.Presentacion
             {
                 dgvConsultarAeropuerto.Rows.Clear();
                 Aeropuerto[] aeropuertos = serviceAero.getAllOrdenado();
-                foreach (Aeropuerto oAero in aeropuertos)
-                    dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString() });
+                if (aeropuertos.Length == 0)
+                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    foreach (Aeropuerto oAero in aeropuertos)
+                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
+                }
             }
 
             // No filtra y no ordena
@@ -76,11 +90,18 @@ namespace CordobaVuela.Presentacion
             {
                 dgvConsultarAeropuerto.Rows.Clear();
                 Aeropuerto[] aeropuertos = serviceAero.getAll();
-                foreach (Aeropuerto oAero in aeropuertos)
-                    dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString() });
+                if (aeropuertos.Length == 0)
+                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    foreach (Aeropuerto oAero in aeropuertos)
+                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
+                }
             }
 
-
+            // Hace que cuando alguien busque de manera consecutiva, los botones se desactiven
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
 
 
         }

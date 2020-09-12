@@ -218,7 +218,10 @@
             this.Controls.Add(this.chkOrdenado);
             this.Controls.Add(this.lblNombreAeropuerto);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(564, 456);
+            this.MinimumSize = new System.Drawing.Size(564, 456);
             this.Name = "ConsultarAeropuerto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Aeropuerto";
             this.Load += new System.EventHandler(this.ConsultarAeropuerto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarAeropuerto)).EndInit();

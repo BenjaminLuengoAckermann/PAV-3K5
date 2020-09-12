@@ -10,15 +10,15 @@ using System.Data;
 
 namespace CordobaVuela.Datos.Dao.Implementacion
 {
-    public class CiudadDaoSqlImp : IDao<Ciudad>
+    public class CiudadDaoSqlImp //: IDao<Ciudad>
     {
         //Vamos a reutilizar este método para crear cada objeto Pais:
-        public Ciudad findById(string id)
+        public Ciudad findById(int id)
         {
-            string sql = "SELECT * FROM ciudad c WHERE c.id = " + id;
+            string sql = "SELECT * from ciudad WHERE id = " + id;
             DataTable CiudadDT = DBHelper.getDBHelper().ConsultaSQL(sql);
 
-            if (CiudadDT != null)
+            if (CiudadDT != null && CiudadDT.Rows.Count > 0)
             {
                 return Mapper(CiudadDT.Rows[0]);
             }
@@ -29,9 +29,10 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         {
             Ciudad ciudad = new Ciudad();
 
-
             ciudad.IdCiudad = (int)ciudadRow["id"];
             ciudad.Nombre = ciudadRow["nombre"].ToString();
+            ciudad.Provincia = (int)ciudadRow["idProvincia"];
+
 
             return ciudad;
         }
@@ -44,7 +45,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
         public bool add(Ciudad ciudad)
         {
-            string sql = "INSERT INTO pais (id, nombre) VALUES (" + ciudad.IdCiudad + ", '" + ciudad.Nombre + "')";
+            string sql = "INSERT INTO ciudad (id, nombre) VALUES (" + ciudad.IdCiudad + ", '" + ciudad.Nombre + "')";
 
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }

@@ -11,14 +11,14 @@ namespace CordobaVuela.Negocio.Entidades
         public int IdProvincia { get; set; }
         public string Nombre { get; set; }
 
-        public string Pais { get; set; }
+        public int Pais { get; set; }
 
         public Provincia()
         {
 
         }
 
-        public Provincia(int idProv, string nom, string pais)
+        public Provincia(int idProv, string nom, int pais)
         {
             this.IdProvincia = idProv;
             this.Nombre = nom;

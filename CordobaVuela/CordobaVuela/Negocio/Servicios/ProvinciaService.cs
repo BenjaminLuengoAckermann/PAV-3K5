@@ -29,5 +29,10 @@ namespace CordobaVuela.Negocio.Servicios
         {
             return dao.getProvinciasPorPais(pais);
         }
+
+        public Provincia FindById(string id)
+        {
+            return dao.findById(id);
+        }
     }
 }

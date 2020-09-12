@@ -38,6 +38,12 @@ namespace CordobaVuela.Negocio.Servicios
         {
             return dao.getCiudadesPorProvincia(pcia);
         }
+    
+    
+        public Ciudad FindById(int id)
+        {
+            return dao.findById(id);
+        }
     }
 }
 

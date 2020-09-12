@@ -117,7 +117,9 @@ namespace CordobaVuela.Presentacion
             txtRepitaPassword.Text = "";
             mskDocumento.Text = "";
             mskNacimiento.Text = "";
-            cmbTipoDocumento.Text = "";
+            cmbTipoDocumento.Items.Clear();
+            AltaPasajero_Load(null, null);
+
             
         
         }
@@ -125,6 +127,7 @@ namespace CordobaVuela.Presentacion
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            txtNombre.Focus();
         }
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
@@ -183,6 +186,15 @@ namespace CordobaVuela.Presentacion
                 txtRepitaPassword.Focus();
                 return false;
             }
+            if (txtPassword.Text.Length < 8 || txtRepitaPassword.Text.Length < 8)
+            {
+                MessageBox.Show("Error. La contaseña debe tener al menos 8 caracteres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Text = "";
+                txtRepitaPassword.Text = "";
+                txtPassword.Focus();
+                return false;
+            }
+            
             return true;
 
         }

@@ -43,8 +43,28 @@ namespace CordobaVuela.Presentacion
                 cmbPais.Items.Add(aux[i].Nombre.ToString());
             }
 
+
             if (flag == true)
+            {
                 txtNombre.Text = aero.Nombre;
+
+
+                Ciudad city = serviceC.FindById(aero.IdCiudad);
+                cmbCiudad.Items.Add(city.Nombre.ToString());
+                cmbCiudad.Text = city.Nombre.ToString();
+
+                Provincia prov = servicePcia.FindById(city.Provincia.ToString());
+                cmbProvincia.Items.Add(prov.Nombre.ToString());
+                cmbProvincia.Text = prov.Nombre.ToString();
+
+                Pais pais = serviceP.FindById(prov.Pais.ToString());
+                cmbPais.Text = pais.Nombre.ToString();
+            
+            }
+            
+            
+            
+              
         }
 
 

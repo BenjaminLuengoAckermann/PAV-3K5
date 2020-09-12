@@ -32,6 +32,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
             pcia.IdProvincia = (int)pciaRow["id"];
             pcia.Nombre = pciaRow["nombre"].ToString();
+            pcia.Pais = (int)pciaRow["idPais"];
 
             return pcia;
         }

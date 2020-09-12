@@ -35,6 +35,7 @@ namespace CordobaVuela.Presentacion
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            txtNombre.Focus();
         }
 
         private void LimpiarCampos()
@@ -136,7 +137,7 @@ namespace CordobaVuela.Presentacion
                 {
                     serviceA.CrearAeropuerto(colab);
                     MessageBox.Show("Se ha registrado el aeropuerto correctamente!", "Registro de Aeropuerto Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information); this.Hide();
-                    Principal ventana = new Principal(us);
+                    AltaAeropuerto ventana = new AltaAeropuerto(us);
                     ventana.Show();
                 }
             }

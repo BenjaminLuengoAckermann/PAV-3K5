@@ -234,7 +234,10 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.label8);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(450, 445);
+            this.MinimumSize = new System.Drawing.Size(450, 445);
             this.Name = "frmModificarAeropuerto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Aeropuerto";
             this.Load += new System.EventHandler(this.frmModificarAeropuerto_Load);
             this.ResumeLayout(false);

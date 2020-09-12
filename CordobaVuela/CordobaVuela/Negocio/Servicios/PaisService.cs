@@ -24,11 +24,11 @@ namespace CordobaVuela.Negocio.Servicios
         }
 
 
-        /*public Pais FindById(int id)
+        public Pais FindById(string id)
         {
-            return dao.findById2(id);
+            return dao.findById(id);
         }
-        */
+        
     }
 
 
