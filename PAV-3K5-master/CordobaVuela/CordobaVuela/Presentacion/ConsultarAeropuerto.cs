@@ -32,7 +32,17 @@ namespace CordobaVuela.Presentacion
 
         }
 
-
+        private void LimpiarCampos()
+        {
+            cmbPais.Items.Clear();
+            cmbProvincia.Items.Clear();
+            txtNombreAeropuerto.Text = "";
+            cmbCiudad.Items.Clear();
+            dgvConsultarAeropuerto.Rows.Clear();
+            // Esta linea llama al metodo Consultar aeropueto para llenar de nuevo los combos
+            ConsultarAeropuerto_Load(null, null);
+            
+        }
         private void ConsultarAeropuerto_Load(object sender, EventArgs e)
         {
             Pais[] aux = serviceP.ListadoDePaises();
@@ -84,71 +94,102 @@ namespace CordobaVuela.Presentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // Filtra y ordena
-            if (txtNombreAeropuerto.Text != String.Empty && chkOrdenado.Checked)
-            {
-                dgvConsultarAeropuerto.Rows.Clear();
-                Aeropuerto[] aeropuertos = serviceAero.FindByNombreOrdenado(txtNombreAeropuerto.Text);
-                if (aeropuertos.Length == 0)
-                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-                else
-                {
-                    foreach (Aeropuerto oAero in aeropuertos)
-                    {
-                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() }); ;
-
-                    }
-                }
-            }
-
-            // Filtra pero no ordena
-            if (txtNombreAeropuerto.Text != String.Empty && chkOrdenado.Checked == false)
-            {
-                dgvConsultarAeropuerto.Rows.Clear();
-                Aeropuerto[] aeropuertos = serviceAero.FindByNombre(txtNombreAeropuerto.Text);
-                if (aeropuertos.Length == 0)
-                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-                else
-                {
-                    foreach (Aeropuerto oAero in aeropuertos)
-                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
-                }
-            }
-
-            // No filtra pero ordena
-            if (txtNombreAeropuerto.Text == String.Empty && chkOrdenado.Checked)
-            {
-                dgvConsultarAeropuerto.Rows.Clear();
-                Aeropuerto[] aeropuertos = serviceAero.getAllOrdenado();
-                if (aeropuertos.Length == 0)
-                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-                else
-                {
-                    foreach (Aeropuerto oAero in aeropuertos)
-                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
-                }
-            }
-
-            // No filtra y no ordena
-            if (txtNombreAeropuerto.Text == String.Empty && chkOrdenado.Checked == false)
-            {
-                dgvConsultarAeropuerto.Rows.Clear();
-                Aeropuerto[] aeropuertos = serviceAero.getAll();
-                if (aeropuertos.Length == 0)
-                { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-                else
-                {
-                    foreach (Aeropuerto oAero in aeropuertos)
-                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
-                }
-            }
-
-            // Hace que cuando alguien busque de manera consecutiva, los botones se desactiven
+            //SI NO USA LOS COMBOS
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
+            dgvConsultarAeropuerto.Rows.Clear();
+            if (txtNombreAeropuerto.Text == "" && cmbPais.Text == "")
+            {
+                Aeropuerto[] aeropuertos = serviceAero.FindAll();
+                if (aeropuertos.Length == 0)
+                { MessageBox.Show("No hay ningún aeropuerto cargado en el sistema", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    foreach (Aeropuerto oAero in aeropuertos)
+                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais });
+                }
+                
+            }
+            else 
+            { 
+                if (cmbPais.SelectedIndex == -1)
+                {
+          
+                    if (txtNombreAeropuerto.Text != String.Empty && chkOrdenado.Checked == false)
+                    {
+                        dgvConsultarAeropuerto.Rows.Clear();
+                        Aeropuerto[] aeropuertos = serviceAero.FindByNombre(txtNombreAeropuerto.Text);
+                        if (aeropuertos.Length == 0)
+                        { MessageBox.Show("No se encontraron aeropuertos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        else
+                        {
+                            foreach (Aeropuerto oAero in aeropuertos)
+                                dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
+                        }
+                    }
 
+                }
 
+                //SI USA EL COMBO DE PAIS PERO NO USA EL NOMBRE
+                if (cmbPais.SelectedIndex != -1 && (cmbProvincia.SelectedIndex == -1))
+                {
+                    if (txtNombreAeropuerto.Text == String.Empty)
+                    {
+                        dgvConsultarAeropuerto.Rows.Clear();
+                        Aeropuerto[] aeropuertos = serviceAero.FindByPais(cmbPais.Text);
+                        if (aeropuertos.Length == 0)
+                        { MessageBox.Show("No se encontraron aeropuertos para el país seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        else
+                        {
+                            foreach (Aeropuerto oAero in aeropuertos)
+                            dgvConsultarAeropuerto.Rows.Add(new string[] {oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais});
+                        }
+                    }
+                }
+
+                //SI USA EL COMBO DE PROVINCIA
+                if (cmbProvincia.SelectedIndex != -1 && (cmbCiudad.SelectedIndex == -1))
+                {
+                    if (txtNombreAeropuerto.Text == String.Empty)
+                    {
+                        dgvConsultarAeropuerto.Rows.Clear();
+                        Aeropuerto[] aeropuertos = serviceAero.FindByProvincia(cmbProvincia.Text);
+                        if (aeropuertos.Length == 0)
+                        { MessageBox.Show("No se encontraron aeropuertos para la provincia seleccionada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        else
+                        {
+                            foreach (Aeropuerto oAero in aeropuertos)
+                            dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais });
+                        }
+                    }
+                }
+                //SI USA EL COMBO DE CIUDAD
+                if (cmbCiudad.SelectedIndex != -1)
+                {
+                    if (txtNombreAeropuerto.Text == String.Empty)
+                    {
+                        dgvConsultarAeropuerto.Rows.Clear();
+                        Aeropuerto[] aeropuertos = serviceAero.FindByCiudad(cmbCiudad.Text);
+                        if (aeropuertos.Length == 0)
+                        { MessageBox.Show("No se encontraron aeropuertos para la ciudad seleccionada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        else
+                        {
+                            foreach (Aeropuerto oAero in aeropuertos)
+                            dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais });
+                        }
+                    }
+                else
+                {
+
+                }
+            }
+            }
+            if (chkOrdenado.Checked)
+            {
+                dgvConsultarAeropuerto.Sort(dgvConsultarAeropuerto.Columns[0], ListSortDirection.Ascending);
+            }
         }
+            
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -241,6 +282,11 @@ namespace CordobaVuela.Presentacion
             }
             else
                 MessageBox.Show("Acceso unicamente para personal de CordobaVuela.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
     }

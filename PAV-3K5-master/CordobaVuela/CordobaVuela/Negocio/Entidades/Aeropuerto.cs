@@ -13,6 +13,9 @@ namespace CordobaVuela.Negocio.Entidades
         public int IdCiudad { get; set; }
 
         public bool Borrado { get; set; }
+        public string Ciudad { get; set; }
+        public string Pais { get; set; }
+        public string Provincia { get; set; }
 
 
         public Aeropuerto()

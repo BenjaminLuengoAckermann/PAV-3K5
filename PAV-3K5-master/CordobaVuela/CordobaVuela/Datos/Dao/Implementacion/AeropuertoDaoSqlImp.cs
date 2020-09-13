@@ -31,6 +31,28 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
             return aeropuerto;
         }
+        private Aeropuerto MapperTres(DataRow aeropuertoRow)
+        {
+            Aeropuerto aeropuerto = new Aeropuerto();
+
+
+            aeropuerto.Ciudad = aeropuertoRow["ciudad"].ToString();
+            aeropuerto.Nombre = aeropuertoRow["nombre"].ToString();
+          
+            return aeropuerto;
+        }
+        private Aeropuerto MapperTresBis(DataRow aeropuertoRow)
+        {
+            Aeropuerto aeropuerto = new Aeropuerto();
+
+
+            aeropuerto.Ciudad = aeropuertoRow["ciudad"].ToString();
+            aeropuerto.Nombre = aeropuertoRow["nombre"].ToString();
+            aeropuerto.Provincia = aeropuertoRow["provincia"].ToString();
+            aeropuerto.Pais = aeropuertoRow["pais"].ToString();
+
+            return aeropuerto;
+        }
 
         public Aeropuerto[] FindByNombre(string nombre)
         {
@@ -40,6 +62,41 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             for (int i = 0; i < AeroDT.Rows.Count; i++)
             {
                 aeropuertos[i] = Mapper(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
+        public Aeropuerto[] FindByPais(string pais)
+        {
+            
+
+            string sql = "SELECT A.nombre, C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND P.nombre LIKE '" + pais + "'";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
+        public Aeropuerto[] FindByProvincia(string provincia)
+        {
+            string sql = "SELECT A.nombre, C.nombre AS 'ciudad' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND PR.nombre LIKE '" + provincia + "'";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
+        public Aeropuerto[] FindByCiudad(string ciudad)
+        {
+            string sql = "SELECT A.nombre, C.nombre AS 'ciudad' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND C.nombre LIKE '" + ciudad + "'";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
             }
             return aeropuertos;
         }
@@ -56,6 +113,17 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return aeropuertos;
         }
 
+        public Aeropuerto[] FindAll()
+        {
+            string sql = "SELECT A.nombre, C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N'";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
 
         public bool delete(int id)
         {
