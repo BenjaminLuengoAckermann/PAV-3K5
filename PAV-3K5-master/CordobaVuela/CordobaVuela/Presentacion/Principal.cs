@@ -29,14 +29,7 @@ namespace CordobaVuela.Presentacion
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            //while (true)
-            //{
-            //pbxNoticias.Image = CordobaVuela.Properties.Resources.covid_avion1;
-            //pbxNoticias.Image = CordobaVuela.Properties.Resources.foto;
-            //Thread.Sleep(5);
-
-
-            //}Timer timer = new Timer(172800000);
+            
         }
 
         private void pasajerosToolStripMenuItem_Click(object sender, EventArgs e)

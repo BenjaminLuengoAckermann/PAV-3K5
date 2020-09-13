@@ -55,6 +55,7 @@
             this.ColProvincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarAeropuerto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +108,8 @@
             this.colCiudad,
             this.ColProvincia,
             this.ColPais,
-            this.colId});
+            this.colId,
+            this.colIdCiudad});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +118,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvConsultarAeropuerto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvConsultarAeropuerto.Location = new System.Drawing.Point(54, 208);
+            this.dgvConsultarAeropuerto.Location = new System.Drawing.Point(54, 198);
             this.dgvConsultarAeropuerto.Name = "dgvConsultarAeropuerto";
             this.dgvConsultarAeropuerto.ReadOnly = true;
             this.dgvConsultarAeropuerto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -130,7 +132,7 @@
             this.dgvConsultarAeropuerto.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             this.dgvConsultarAeropuerto.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvConsultarAeropuerto.Size = new System.Drawing.Size(442, 114);
+            this.dgvConsultarAeropuerto.Size = new System.Drawing.Size(443, 114);
             this.dgvConsultarAeropuerto.TabIndex = 4;
             this.dgvConsultarAeropuerto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_perfiles_CellClick);
             this.dgvConsultarAeropuerto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultarAeropuerto_CellContentClick);
@@ -158,7 +160,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Enabled = false;
-            this.btnEliminar.Location = new System.Drawing.Point(120, 328);
+            this.btnEliminar.Location = new System.Drawing.Point(120, 318);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(136, 29);
             this.btnEliminar.TabIndex = 7;
@@ -169,7 +171,7 @@
             // btnModificar
             // 
             this.btnModificar.Enabled = false;
-            this.btnModificar.Location = new System.Drawing.Point(271, 328);
+            this.btnModificar.Location = new System.Drawing.Point(271, 318);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(136, 29);
             this.btnModificar.TabIndex = 8;
@@ -306,6 +308,13 @@
             this.colId.ReadOnly = true;
             this.colId.Visible = false;
             // 
+            // colIdCiudad
+            // 
+            this.colIdCiudad.HeaderText = "ID Ciudad";
+            this.colIdCiudad.Name = "colIdCiudad";
+            this.colIdCiudad.ReadOnly = true;
+            this.colIdCiudad.Visible = false;
+            // 
             // ConsultarAeropuerto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,5 +374,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProvincia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPais;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdCiudad;
     }
 }

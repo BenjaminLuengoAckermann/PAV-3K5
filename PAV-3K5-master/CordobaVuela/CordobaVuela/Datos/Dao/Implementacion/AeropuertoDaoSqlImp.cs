@@ -48,7 +48,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
         public Aeropuerto[] FindByNombre(string nombre)
         {
-            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND A.nombre LIKE '" + nombre + "'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND A.nombre LIKE '%" + nombre + "%'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
@@ -96,7 +96,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         public Aeropuerto[] FindByPaisYNombre(string pais, string nombre)
         {
 
-            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND P.nombre LIKE '" + pais + "' AND A.nombre LIKE '" + nombre + "'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND P.nombre LIKE '" + pais + "' AND A.nombre LIKE '%" + nombre + "%'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
@@ -108,7 +108,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         public Aeropuerto[] FindByProvinciaYNombre(string provincia, string nombre)
         {
 
-            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND PR.nombre LIKE '" + provincia + "' AND A.nombre LIKE '" + nombre + "'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND PR.nombre LIKE '" + provincia + "' AND A.nombre LIKE '%" + nombre + "%'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
@@ -120,7 +120,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         public Aeropuerto[] FindByCiudadYNombre(string ciudad, string nombre)
         {
 
-            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND C.nombre LIKE '" + ciudad + "' AND A.nombre LIKE '" + nombre + "'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND C.nombre LIKE '" + ciudad + "' AND A.nombre LIKE '%" + nombre + "%'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)

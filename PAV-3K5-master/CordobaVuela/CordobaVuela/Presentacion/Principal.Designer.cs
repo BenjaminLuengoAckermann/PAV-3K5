@@ -173,7 +173,7 @@
             this.consultarAeropuertoToolStripMenuItem,
             this.opRegAeropuerto});
             this.aeropuertosToolStripMenuItem1.Name = "aeropuertosToolStripMenuItem1";
-            this.aeropuertosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aeropuertosToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.aeropuertosToolStripMenuItem1.Text = "Aeropuertos";
             // 
             // consultarAeropuertoToolStripMenuItem
@@ -223,15 +223,15 @@
             // tmrFotos
             // 
             this.tmrFotos.Enabled = true;
-            this.tmrFotos.Interval = 10000;
+            this.tmrFotos.Interval = 5000;
             this.tmrFotos.Tick += new System.EventHandler(this.tmrFotos_Tick);
             // 
             // pbxNoticias
             // 
             this.pbxNoticias.Image = global::CordobaVuela.Properties.Resources.covid_avion1;
-            this.pbxNoticias.Location = new System.Drawing.Point(32, 94);
+            this.pbxNoticias.Location = new System.Drawing.Point(32, 118);
             this.pbxNoticias.Name = "pbxNoticias";
-            this.pbxNoticias.Size = new System.Drawing.Size(341, 304);
+            this.pbxNoticias.Size = new System.Drawing.Size(232, 236);
             this.pbxNoticias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxNoticias.TabIndex = 15;
             this.pbxNoticias.TabStop = false;

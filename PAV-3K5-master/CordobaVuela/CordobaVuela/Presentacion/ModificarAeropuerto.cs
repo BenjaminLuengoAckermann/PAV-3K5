@@ -20,6 +20,7 @@ namespace CordobaVuela.Presentacion
         private CiudadService serviceC;
         private AeropuertoService serviceA;
         private ProvinciaService servicePcia;
+        private bool flag;
         
 
         public frmModificarAeropuerto(Usuario usu, Aeropuerto aero)
@@ -30,25 +31,39 @@ namespace CordobaVuela.Presentacion
             serviceP = new PaisService();
             serviceC = new CiudadService();
             serviceA = new AeropuertoService();
-            servicePcia = new ProvinciaService();           
+            servicePcia = new ProvinciaService();
+            flag = true;
             lblUsu.Text = "Usuario Logueado: " + usu.IdUsuario.ToString();
         }
     
         public void frmModificarAeropuerto_Load(object sender, EventArgs e)
         {
 
-            txtNombre.Text = aero.Nombre;
-            //HABRÍA QUE INTENTAR QUE SE LLENEN LOS COMBOS SOLOS CON ESTOS DATOS
-            cmbPais.SelectedItem = aero.Pais;
-            cmbProvincia.Text = aero.Provincia;
-            cmbCiudad.Text = aero.Ciudad; 
-
             Pais[] aux = serviceP.ListadoDePaises();
             for (int i = 0; i < aux.Length; i++)
             {
                 cmbPais.Items.Add(aux[i].Nombre.ToString());
             }
-   
+
+
+            if (flag == true)
+            {
+                txtNombre.Text = aero.Nombre;
+
+
+                cmbCiudad.Items.Add(aero.Ciudad);
+                cmbCiudad.Text = aero.Ciudad.ToString();
+
+
+                cmbProvincia.Items.Add(aero.Provincia.ToString());
+                cmbProvincia.Text = aero.Provincia.ToString();
+
+                cmbPais.Text =aero.Pais.ToString();
+
+            }
+
+
+
         }
 
         // Aqui consulta las provincias segun el pais elegido
@@ -111,8 +126,10 @@ namespace CordobaVuela.Presentacion
             cmbProvincia.Items.Clear();
             txtNombre.Text = "";
             cmbCiudad.Items.Clear();
-            
-            
+           
+            // La flag la usamos para que cuando se llame al metodo Load tambien se limpie el campo nombre del aeropuerto
+            flag = false;
+
             // Esta linea llama al metodo alta aeropueto para llenar de nuevo los combos
             frmModificarAeropuerto_Load(null, null);
             txtNombre.Focus();
