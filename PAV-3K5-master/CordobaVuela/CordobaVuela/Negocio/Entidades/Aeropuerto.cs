@@ -39,5 +39,13 @@ namespace CordobaVuela.Negocio.Entidades
             this.IdCiudad = idCiu;
 
         }
+        public Aeropuerto(string nom, int id, string ciudad, string provincia, string pais)
+        {
+            this.Nombre = nom;
+            this.IdAeropuerto = id;
+            this.Ciudad = ciudad;
+            this.Provincia = provincia;
+            this.Pais = pais;
+        }
     }
 }

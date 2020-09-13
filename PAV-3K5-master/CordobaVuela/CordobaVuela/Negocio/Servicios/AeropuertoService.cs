@@ -30,25 +30,13 @@ namespace CordobaVuela.Negocio.Servicios
             return dao.FindByNombre(nombre);
         }
 
-        public Aeropuerto[] getAll()
-        {
-            return dao.ObtenerTodo();
-        }
+        
         public Aeropuerto[] FindAll()
         {
             return dao.FindAll();
         }
 
-
-        public Aeropuerto[] FindByNombreOrdenado(string nombre)
-        {
-            return dao.FindByNombreOrdenado(nombre);
-        }
-
-        public Aeropuerto[] getAllOrdenado()
-        {
-            return dao.ObtenerTodoOrdenado();
-        }
+        
         public Aeropuerto[] FindByPais(string nombre)
         {
             return dao.FindByPais(nombre);
@@ -61,6 +49,20 @@ namespace CordobaVuela.Negocio.Servicios
         {
             return dao.FindByCiudad(nombre);
         }
+        public Aeropuerto[] FindByPaisYNombre(string pais, string nombre)
+        {
+            return dao.FindByPaisYNombre(pais, nombre);
+        }
+        public Aeropuerto[] FindByProvinciaYNombre(string provincia, string nombre)
+        {
+            return dao.FindByProvinciaYNombre(provincia, nombre);
+        }
+        public Aeropuerto[] FindByCiudadYNombre(string ciudad, string nombre)
+        {
+            return dao.FindByCiudadYNombre(ciudad, nombre);
+        }
+
+
         public bool BorrarAeropuerto(int id)
         {
             return dao.delete(id);

@@ -98,7 +98,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         }
 
 
-        public string FindByIdAndReturnNombre(int id)
+        /*public string FindByIdAndReturnNombre(int id)
         {
             string sql = "SELECT * FROM ciudad c WHERE c.id = " + id;
             DataTable CiudadDT = DBHelper.getDBHelper().ConsultaSQL(sql);
@@ -108,7 +108,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
                 return Mapper(CiudadDT.Rows[0]).Nombre.ToString();
             }
             return null;
-        }
+        }*/
 
 
         public Ciudad[] getCiudadesPorProvincia(string pcia)

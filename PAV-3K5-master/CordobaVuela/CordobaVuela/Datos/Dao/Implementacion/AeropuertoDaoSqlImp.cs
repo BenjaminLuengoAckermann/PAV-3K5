@@ -31,16 +31,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
 
             return aeropuerto;
         }
-        private Aeropuerto MapperTres(DataRow aeropuertoRow)
-        {
-            Aeropuerto aeropuerto = new Aeropuerto();
-
-
-            aeropuerto.Ciudad = aeropuertoRow["ciudad"].ToString();
-            aeropuerto.Nombre = aeropuertoRow["nombre"].ToString();
-          
-            return aeropuerto;
-        }
+       
         private Aeropuerto MapperTresBis(DataRow aeropuertoRow)
         {
             Aeropuerto aeropuerto = new Aeropuerto();
@@ -50,18 +41,19 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             aeropuerto.Nombre = aeropuertoRow["nombre"].ToString();
             aeropuerto.Provincia = aeropuertoRow["provincia"].ToString();
             aeropuerto.Pais = aeropuertoRow["pais"].ToString();
+            aeropuerto.IdAeropuerto = (int)aeropuertoRow["idAeropuerto"];
 
             return aeropuerto;
         }
 
         public Aeropuerto[] FindByNombre(string nombre)
         {
-            string sql = "SELECT * FROM aeropuerto WHERE borrado = 'N' AND nombre LIKE '%" + nombre + "%'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND A.nombre LIKE '" + nombre + "'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
             {
-                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
             }
             return aeropuertos;
         }
@@ -69,7 +61,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         {
             
 
-            string sql = "SELECT A.nombre, C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND P.nombre LIKE '" + pais + "'";
+            string sql = "SELECT A.nombre, A.id AS 'idAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND P.nombre LIKE '" + pais + "'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
@@ -80,7 +72,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         }
         public Aeropuerto[] FindByProvincia(string provincia)
         {
-            string sql = "SELECT A.nombre, C.nombre AS 'ciudad' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND PR.nombre LIKE '" + provincia + "'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND PR.nombre LIKE '" + provincia + "'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
@@ -91,7 +83,7 @@ namespace CordobaVuela.Datos.Dao.Implementacion
         }
         public Aeropuerto[] FindByCiudad(string ciudad)
         {
-            string sql = "SELECT A.nombre, C.nombre AS 'ciudad' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND C.nombre LIKE '" + ciudad + "'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND C.nombre LIKE '" + ciudad + "'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
@@ -101,21 +93,48 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return aeropuertos;
         }
 
-        public Aeropuerto[] FindByNombreOrdenado(string nombre)
+        public Aeropuerto[] FindByPaisYNombre(string pais, string nombre)
         {
-            string sql = "SELECT * FROM aeropuerto WHERE borrado = 'N' AND nombre LIKE '%" + nombre + "%' ORDER BY nombre";
+
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND P.nombre LIKE '" + pais + "' AND A.nombre LIKE '" + nombre + "'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
             {
-                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
+        public Aeropuerto[] FindByProvinciaYNombre(string provincia, string nombre)
+        {
+
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND PR.nombre LIKE '" + provincia + "' AND A.nombre LIKE '" + nombre + "'";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
+            }
+            return aeropuertos;
+        }
+        public Aeropuerto[] FindByCiudadYNombre(string ciudad, string nombre)
+        {
+
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N' AND C.nombre LIKE '" + ciudad + "' AND A.nombre LIKE '" + nombre + "'";
+            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
+            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
+            for (int i = 0; i < AeroDT.Rows.Count; i++)
+            {
+                aeropuertos[i] = MapperTresBis(AeroDT.Rows[i]);
             }
             return aeropuertos;
         }
 
+
+
         public Aeropuerto[] FindAll()
         {
-            string sql = "SELECT A.nombre, C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N'";
+            string sql = "SELECT A.nombre, A.id AS 'IdAeropuerto', C.nombre AS 'ciudad', PR.nombre AS 'provincia', P.nombre AS 'pais' FROM aeropuerto A JOIN ciudad C on C.id = A.idCiudad JOIN provincia PR ON PR.id = C.idProvincia JOIN pais P ON P.id = PR.idPais WHERE A.borrado = 'N'";
             DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
             Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
             for (int i = 0; i < AeroDT.Rows.Count; i++)
@@ -146,31 +165,9 @@ namespace CordobaVuela.Datos.Dao.Implementacion
             return DBHelper.getDBHelper().ejecutarSQL(sql) > 0;
         }
 
-        public Aeropuerto[] ObtenerTodo()
-        {
-            string sql = "SELECT * FROM aeropuerto WHERE borrado = 'N' ";
-            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
-            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
-            for (int i = 0; i < AeroDT.Rows.Count; i++)
-            {
-                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
-            }
-            return aeropuertos;
+       
 
-        }
-
-        public Aeropuerto[] ObtenerTodoOrdenado()
-        {
-            string sql = "SELECT * FROM aeropuerto WHERE borrado = 'N' ORDER BY nombre";
-            DataTable AeroDT = DBHelper.getDBHelper().ConsultaSQL(sql);
-            Aeropuerto[] aeropuertos = new Aeropuerto[AeroDT.Rows.Count];
-            for (int i = 0; i < AeroDT.Rows.Count; i++)
-            {
-                aeropuertos[i] = Mapper(AeroDT.Rows[i]);
-            }
-            return aeropuertos;
-
-        }
+      
 
         public IList<Aeropuerto> getAll()
         {

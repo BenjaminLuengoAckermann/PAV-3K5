@@ -94,10 +94,11 @@ namespace CordobaVuela.Presentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //SI NO USA LOS COMBOS
+            
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
             dgvConsultarAeropuerto.Rows.Clear();
+            //SI NO USA LOS COMBOS
             if (txtNombreAeropuerto.Text == "" && cmbPais.Text == "")
             {
                 Aeropuerto[] aeropuertos = serviceAero.FindAll();
@@ -106,7 +107,7 @@ namespace CordobaVuela.Presentacion
                 else
                 {
                     foreach (Aeropuerto oAero in aeropuertos)
-                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais });
+                        dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString() });
                 }
                 
             }
@@ -115,7 +116,7 @@ namespace CordobaVuela.Presentacion
                 if (cmbPais.SelectedIndex == -1)
                 {
           
-                    if (txtNombreAeropuerto.Text != String.Empty && chkOrdenado.Checked == false)
+                    if (txtNombreAeropuerto.Text != String.Empty)
                     {
                         dgvConsultarAeropuerto.Rows.Clear();
                         Aeropuerto[] aeropuertos = serviceAero.FindByNombre(txtNombreAeropuerto.Text);
@@ -124,7 +125,7 @@ namespace CordobaVuela.Presentacion
                         else
                         {
                             foreach (Aeropuerto oAero in aeropuertos)
-                                dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre.ToString(), serviceC.FindByIdAndReturnNombre(oAero.IdCiudad), oAero.IdAeropuerto.ToString(), oAero.IdCiudad.ToString() });
+                                dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString()});
                         }
                     }
 
@@ -142,7 +143,19 @@ namespace CordobaVuela.Presentacion
                         else
                         {
                             foreach (Aeropuerto oAero in aeropuertos)
-                            dgvConsultarAeropuerto.Rows.Add(new string[] {oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais});
+                            dgvConsultarAeropuerto.Rows.Add(new string[] {oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString() });
+                        }
+                    }
+                    else
+                    {
+                        dgvConsultarAeropuerto.Rows.Clear();
+                        Aeropuerto[] aeropuertos = serviceAero.FindByPaisYNombre(cmbPais.Text, txtNombreAeropuerto.Text);
+                        if (aeropuertos.Length == 0)
+                        { MessageBox.Show("No se encontraron aeropuertos para el país seleccionado y el nombre ingresado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        else
+                        {
+                            foreach (Aeropuerto oAero in aeropuertos)
+                                dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString() });
                         }
                     }
                 }
@@ -159,11 +172,23 @@ namespace CordobaVuela.Presentacion
                         else
                         {
                             foreach (Aeropuerto oAero in aeropuertos)
-                            dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais });
+                            dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString() });
+                        }
+                    }
+                    else
+                    {
+                        dgvConsultarAeropuerto.Rows.Clear();
+                        Aeropuerto[] aeropuertos = serviceAero.FindByProvinciaYNombre(cmbProvincia.Text, txtNombreAeropuerto.Text);
+                        if (aeropuertos.Length == 0)
+                        { MessageBox.Show("No se encontraron aeropuertos para la provincia seleccionada y el nombre ingresado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        else
+                        {
+                            foreach (Aeropuerto oAero in aeropuertos)
+                                dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString() });
                         }
                     }
                 }
-                //SI USA EL COMBO DE CIUDAD
+                //SI USA EL COMBO DE CIUDAD 
                 if (cmbCiudad.SelectedIndex != -1)
                 {
                     if (txtNombreAeropuerto.Text == String.Empty)
@@ -175,13 +200,22 @@ namespace CordobaVuela.Presentacion
                         else
                         {
                             foreach (Aeropuerto oAero in aeropuertos)
-                            dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais });
+                            dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString() });
                         }
                     }
-                else
-                {
-
-                }
+                    else
+                    {
+                        dgvConsultarAeropuerto.Rows.Clear();
+                        Aeropuerto[] aeropuertos = serviceAero.FindByCiudadYNombre(cmbCiudad.Text, txtNombreAeropuerto.Text);
+                        if (aeropuertos.Length == 0)
+                        { MessageBox.Show("No se encontraron aeropuertos para la ciudad seleccionada y el nombre ingresado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        else
+                        {
+                            foreach (Aeropuerto oAero in aeropuertos)
+                            dgvConsultarAeropuerto.Rows.Add(new string[] { oAero.Nombre, oAero.Ciudad, oAero.Provincia, oAero.Pais, oAero.IdAeropuerto.ToString() });
+                        }
+                    }
+                
             }
             }
             if (chkOrdenado.Checked)
@@ -267,10 +301,13 @@ namespace CordobaVuela.Presentacion
                     //Aca abrimos el formulario para modificar
                     int id = Convert.ToInt32(dgvConsultarAeropuerto.CurrentRow.Cells["colId"].Value);
                     string nombre = (dgvConsultarAeropuerto.CurrentRow.Cells["colNombre"].Value).ToString();
-                    int idCiudad = Convert.ToInt32(dgvConsultarAeropuerto.CurrentRow.Cells["colIdCiudad"].Value);
+                    string ciudad = (dgvConsultarAeropuerto.CurrentRow.Cells["colCiudad"].Value).ToString();
+                    string provincia = (dgvConsultarAeropuerto.CurrentRow.Cells["colProvincia"].Value).ToString();
+                    string pais = (dgvConsultarAeropuerto.CurrentRow.Cells["colPais"].Value).ToString();
 
+                    
 
-                    Aeropuerto aero = new Aeropuerto(id, nombre, idCiudad);
+                    Aeropuerto aero = new Aeropuerto(nombre, id, ciudad, provincia, pais);
                     frmModificarAeropuerto ventana = new frmModificarAeropuerto(usu, aero);
                     this.Hide();
                     ventana.Show();
