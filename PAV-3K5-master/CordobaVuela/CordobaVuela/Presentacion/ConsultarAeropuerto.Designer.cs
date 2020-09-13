@@ -59,7 +59,7 @@
             // chkOrdenado
             // 
             this.chkOrdenado.AutoSize = true;
-            this.chkOrdenado.Location = new System.Drawing.Point(101, 166);
+            this.chkOrdenado.Location = new System.Drawing.Point(101, 142);
             this.chkOrdenado.Name = "chkOrdenado";
             this.chkOrdenado.Size = new System.Drawing.Size(155, 17);
             this.chkOrdenado.TabIndex = 1;
@@ -68,14 +68,14 @@
             // 
             // txtNombreAeropuerto
             // 
-            this.txtNombreAeropuerto.Location = new System.Drawing.Point(367, 121);
+            this.txtNombreAeropuerto.Location = new System.Drawing.Point(101, 70);
             this.txtNombreAeropuerto.Name = "txtNombreAeropuerto";
             this.txtNombreAeropuerto.Size = new System.Drawing.Size(167, 20);
             this.txtNombreAeropuerto.TabIndex = 2;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(397, 166);
+            this.btnBuscar.Location = new System.Drawing.Point(369, 163);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 29);
             this.btnBuscar.TabIndex = 3;
@@ -205,17 +205,18 @@
             this.cmbProvincia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProvincia.FormattingEnabled = true;
-            this.cmbProvincia.Location = new System.Drawing.Point(101, 117);
+            this.cmbProvincia.Location = new System.Drawing.Point(369, 70);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(167, 21);
             this.cmbProvincia.TabIndex = 46;
+            this.cmbProvincia.SelectionChangeCommitted += new System.EventHandler(this.cmbProvincia_SelectedItemChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(12, 117);
+            this.label4.Location = new System.Drawing.Point(283, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 17);
             this.label4.TabIndex = 50;
@@ -227,17 +228,18 @@
             this.cmbPais.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.FormattingEnabled = true;
-            this.cmbPais.Location = new System.Drawing.Point(101, 81);
+            this.cmbPais.Location = new System.Drawing.Point(101, 102);
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(167, 21);
             this.cmbPais.TabIndex = 45;
+            this.cmbPais.SelectionChangeCommitted += new System.EventHandler(this.cmbPais_SelectedItemChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(48, 85);
+            this.label3.Location = new System.Drawing.Point(51, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 49;
@@ -248,7 +250,7 @@
             this.cmbCiudad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudad.FormattingEnabled = true;
-            this.cmbCiudad.Location = new System.Drawing.Point(367, 84);
+            this.cmbCiudad.Location = new System.Drawing.Point(369, 103);
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(167, 21);
             this.cmbCiudad.TabIndex = 47;
@@ -258,7 +260,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(304, 88);
+            this.label2.Location = new System.Drawing.Point(300, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 17);
             this.label2.TabIndex = 48;
@@ -269,7 +271,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(298, 124);
+            this.label1.Location = new System.Drawing.Point(26, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 51;

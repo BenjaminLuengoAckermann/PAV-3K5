@@ -242,7 +242,6 @@ namespace CordobaVuela.Presentacion
             else
                 MessageBox.Show("Acceso unicamente para personal de CordobaVuela.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-
     }
     }
     
