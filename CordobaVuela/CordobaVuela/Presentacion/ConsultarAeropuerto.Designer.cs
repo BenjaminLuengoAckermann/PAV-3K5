@@ -202,7 +202,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.btnEliminar.Enabled = false;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnEliminar.Location = new System.Drawing.Point(132, 318);
             this.btnEliminar.Name = "btnEliminar";
