@@ -1,0 +1,6 @@
+Buenas profes!
+Nos ocurrió un incidente con git que nos llevó a tener que subir la solucion en un .rar. Para probarla, descarguen el .rar, descompimanlo y accedan a la solucion.
+Por otra parte, la Base de Datos tiene Procesos Almacenados que han de ser ejecutados uno por uno para que carguen correctamente, si ustedes intentan correr el script entero saltará ese error y tendrán que proceder a correrlos uno por uno (no son muchos de todas maneras).
+Para acceder a las funcionalidades "completas" de la aplicación deben loguearse con un usuario empleado. Les hemos creado uno de nombre Martin y contraseña PAV3K52020. 
+Para probar solo las funcionalidades de usuario final o consumidor, pueden crearse un nuevo usuario y acceder.
+Saludos!
